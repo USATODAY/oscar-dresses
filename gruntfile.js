@@ -169,7 +169,10 @@ module.exports = function(grunt) {
             "analytics": "lib/analytics",
             "mobile_detect": "lib/mobile-detect",
             "d3": '../../bower_components/d3/d3',
-            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed'
+            "isotope": "../../bower_components/isotope/dist/isotope.pkgd",
+            "imagesloaded": "../../bower_components/imagesloaded/imagesloaded.pkgd",
+            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed',
+            "brightcove": 'lib/BrightcoveExperiences'
               // "api/ads": "api/ads",
               // "api/analytics": "api/analytics"
           },
@@ -181,12 +184,21 @@ module.exports = function(grunt) {
             'underscore': {
               "exports": '_'
             },
-            "jquery_ui_touch_punch": {
+            "jquery_ui": {
               "deps": [
-                "jquery",
-                "jquery_ui"
+                "jquery"
               ],
               "exports": "jQuery"
+            },
+            "jquery_ui_touch_punch": {
+              "deps": [
+                "jquery"
+                // "jquery_ui"
+              ],
+              "exports": "jQuery"
+            },
+            "brightcove": {
+              "exports": "brightcove"
             }
           }
         }
@@ -221,7 +233,10 @@ module.exports = function(grunt) {
             "analytics": "lib/analytics",
             "mobile_detect": "lib/mobile-detect",
             "d3": '../../bower_components/d3/d3',
-            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed'
+            "isotope": "../../bower_components/isotope/dist/isotope.pkgd",
+            "imagesloaded": "../../bower_components/imagesloaded/imagesloaded.pkgd",
+            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed',
+            "brightcove": 'lib/BrightcoveExperiences'
               // "api/ads": "api/ads",
               // "api/analytics": "api/analytics"
           },
@@ -239,6 +254,9 @@ module.exports = function(grunt) {
                 "jquery_ui"
               ],
               "exports": "jQuery"
+            },
+            "brightcove": {
+              "exports": "brightcove"
             }
           }
         }
