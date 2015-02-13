@@ -58,7 +58,7 @@ module.exports = function(grunt) {
     jshint: {
       options: {
         scripturl: true,
-        ignores: ['<%=config.src%>js/lib/*.js']
+        ignores: ['<%=config.src%>js/lib/*.js', '<%=config.src%>js/templates.js']
       },
       all: ['Gruntfile.js', 'test/*.js', '<%=config.src%>js/**/*.js']
     },
@@ -169,7 +169,10 @@ module.exports = function(grunt) {
             "analytics": "lib/analytics",
             "mobile_detect": "lib/mobile-detect",
             "d3": '../../bower_components/d3/d3',
-            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed'
+            "isotope": "../../bower_components/isotope/dist/isotope.pkgd",
+            "imagesloaded": "../../bower_components/imagesloaded/imagesloaded.pkgd",
+            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed',
+            "brightcove": 'lib/BrightcoveExperiences'
               // "api/ads": "api/ads",
               // "api/analytics": "api/analytics"
           },
@@ -181,12 +184,21 @@ module.exports = function(grunt) {
             'underscore': {
               "exports": '_'
             },
-            "jquery_ui_touch_punch": {
+            "jquery_ui": {
               "deps": [
-                "jquery",
-                "jquery_ui"
+                "jquery"
               ],
               "exports": "jQuery"
+            },
+            "jquery_ui_touch_punch": {
+              "deps": [
+                "jquery"
+                // "jquery_ui"
+              ],
+              "exports": "jQuery"
+            },
+            "brightcove": {
+              "exports": "brightcove"
             }
           }
         }
@@ -221,7 +233,10 @@ module.exports = function(grunt) {
             "analytics": "lib/analytics",
             "mobile_detect": "lib/mobile-detect",
             "d3": '../../bower_components/d3/d3',
-            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed'
+            "isotope": "../../bower_components/isotope/dist/isotope.pkgd",
+            "imagesloaded": "../../bower_components/imagesloaded/imagesloaded.pkgd",
+            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed',
+            "brightcove": 'lib/BrightcoveExperiences'
               // "api/ads": "api/ads",
               // "api/analytics": "api/analytics"
           },
@@ -239,6 +254,9 @@ module.exports = function(grunt) {
                 "jquery_ui"
               ],
               "exports": "jQuery"
+            },
+            "brightcove": {
+              "exports": "brightcove"
             }
           }
         }
@@ -366,8 +384,8 @@ module.exports = function(grunt) {
 
   // Default task(s).
 
-  grunt.registerTask('default', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy:main', 'clean:tmp', 'browserSync:dev', 'watch']);
+  grunt.registerTask('default', ['clean:dev', 'jshint', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy:main', 'clean:tmp', 'browserSync:dev', 'watch']);
   grunt.registerTask('test', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy:main', 'copy:test', 'clean:tmp', 'browserSync:test', 'watch']);
-  grunt.registerTask('build', ['clean:dev', 'jst', 'requirejs:deploy', 'sass:build', 'autoprefixer:build', 'copy:main', 'clean:tmp'])
+  grunt.registerTask('build', ['clean:dev', 'jst', 'requirejs:deploy', 'sass:build', 'autoprefixer:build', 'copy:main', 'clean:tmp']);
   grunt.registerTask('deploy', ['build', 'copy:deploy', 'ftp:upload1', 'ftp:upload2', 'ftp:upload3', 'clean:deploy']);
 };

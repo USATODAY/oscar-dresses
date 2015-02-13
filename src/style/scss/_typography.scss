@@ -1,33 +1,89 @@
-html { font-weight: normal; font-family: "Futura Today Normal", Arial,sans-serif;}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Futura Today Bold", Arial,sans-serif;
+article {
+  font-family: "Futura Today", Arial, sans-serif;
 }
 
-.chatter {
-  font-size: 1em;
-  margin: 0 auto 2em auto;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin: 0;
+}
+
+article .iapp-page-header {
+  color: $purple;
+  font-family: "Futura Today Bold", Arial,sans-serif;
+  font-size: 2.8em;
+  line-height: 1em;
+  margin: 0 0 0.5em 0;
+  padding: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.iapp-page-chatter {
+  font: normal 1.2em/1.5 'arial','helvetica',sans-serif;
+  color: #666;
+  // max-width: 30em;
+}
+
+.iapp-time-stamp {
+  color: #aaa;
+  font: normal 0.7em/1.5 'arial','helvetica',sans-serif;
+  font-style: italic;
+  margin: -2em auto 2em 0;
+}
+
+.topic-header, .card-question {
+  color: $dark-blue;
+  // border-bottom: solid 1px $dark-blue;
+  font-family: "Futura Today Bold", Arial, sans-serif;
+  font-size: 1.5em;
+  // margin-bottom: 0.5em;
+  // text-decoration: underline;
+  text-transform: uppercase;
+
+}
+
+.topic-chatter {
+  font-family: "Futura Today", Arial, sans-serif;
   max-width: 30em;
 }
 
-.page-header {
-  font-size: 1.2em;
-  margin: 0.5em 0;
-  text-transform: uppercase;
-  @media (min-width: 1100px) {
-    font-size: 2em;
+.hashtags {
+  color: $light-blue;
+  margin-top: 0;
+}
+
+@media (max-width: $breakPoint-medium) {
+  .iapp-page-header {
+    font-size: 1.8em;
   }
 }
 
-.detail-header {
-  font-family: "Futura Today DemiBold", Arial,sans-serif;
+.card-question {
+  display: inline-block;
+  vertical-align:middle;
 }
 
-.info-text {
-  max-width: 30em;
-  margin: 0 auto;
+.card-back-header {
+  color: $dark-blue;
+  // border-bottom: solid 1px $dark-blue;
+  font-family: "Futura Today Bold", Arial, sans-serif;
+  margin-bottom: 0.5em;
+  // text-decoration: underline;
+  text-transform: uppercase;
 }
 
-strong {
-  font-family: "Futura Today Bold", Arial,sans-serif;
+.read-more-link {
+  color: $blue;
+}
+
+.iapp-credits { 
+  color: $medium-grey;
+  clear: both;
+  font-family: Arial, sans-serif;
+  font-size: 12px;  
+}
+
+.iapp-summary {
+  font-family: "Futura Today", Arial, sans-serif;
+  font-weight: 400;
 }

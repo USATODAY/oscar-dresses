@@ -1,17 +1,28 @@
-define(
-  [
-    'jquery',
-    'underscore',
-    'templates'
-  ],
-  function(jQuery, _, templates){
-    var app = app || {};
+define([
+  'require',
+  'jquery',
+  'brightcove',
+  'isotope',
+  'underscore',
+  'lib/BackboneRouter',
+  'collections/dresses',
+  'views/appView',
+  'jquery_ui_touch_punch'
+  ], 
+  function(require, jQuery, brightcove, Isotope, _, Backbone, moviesCollection, appView) {
 
-    app.init = function() {
-      console.log("app initialized");
-      jQuery("body").append(templates["template.html"]({test: "Hello world!"}));
-    };
 
-    return app;
+  return {
+    init: function() {
+      require( [ 'jquery-bridget/jquery.bridget' ],
+        function() {
+          // make Isotope a jQuery plugin
+          $.bridget( 'isotope', Isotope );
 
+          appview = new appView({collection: new moviesCollection()});
+          Backbone.history.start();
+        }
+      );   
+    }
+  };
 });
