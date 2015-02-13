@@ -5,7 +5,7 @@ define([
   'isotope',
   'underscore',
   'lib/BackboneRouter',
-  'collections/movies',
+  'collections/dresses',
   'views/appView',
   'jquery_ui_touch_punch'
   ], 

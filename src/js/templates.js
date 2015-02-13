@@ -75,15 +75,14 @@ return __p
 
 this["templates"]["card-front.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
+var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '   <div class="category-bar">\n  \n   </div>\n   <div class="title-overlay"><h2>' +
-((__t = ( movietitle )) == null ? '' : __t) +
-'</h2></div>\n  <img class="cover-img" src="';
- print(basepath + photoname) ;
-__p += '" alt="' +
-((__t = ( movietitle)) == null ? '' : __t) +
+((__t = ( person_name)) == null ? '' : __t) +
+'</h2></div>\n  <img class="cover-img" src="' +
+((__t = (photo_url)) == null ? '' : __t) +
+'" alt="' +
+((__t = ( person_name)) == null ? '' : __t) +
 '">\n';
 
 }

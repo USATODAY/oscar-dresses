@@ -1,7 +1,11 @@
-define(["jquery", "underscore"], function(jQuery, _) {
+define(
+    ["jquery", "underscore"], 
+    function(jQuery, _) {
 
-  var staticInfo = JSON.parse($('.staticinfo').html());
-  var isMobile = staticInfo.platform === 'mobile';
+        var staticInfo = JSON.parse($('.staticinfo').html());
+        var isMobile = staticInfo.platform === 'mobile';
 
-  return _.extend(staticInfo, { isMobile: isMobile});
+        return _.extend(staticInfo, {
+            isMobile: isMobile
+        });
 });
