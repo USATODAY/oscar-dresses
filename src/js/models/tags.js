@@ -17,5 +17,5 @@ define([], function() {
     "Creepy",
     "Adrenaline rush",
     "Oscar nominated"
-  ]
+  ];
 });

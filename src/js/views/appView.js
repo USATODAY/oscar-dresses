@@ -38,7 +38,7 @@ define([
     },
 
     onHighlightRoute: function(id) {
-      if (this.collection.toJSON().length == 0) {
+      if (this.collection.toJSON().length === 0) {
        this.collection.once("reset", function() {
           var detailModel = _.find(this.collection.models, function(model) {
             return model.get("rowNumber") == id;

@@ -15,7 +15,11 @@ define([
       var classes = "card small-card";
       _.each(categories, function(category) {
         var tagClass; 
-        category == ":(" ? tagClass="sad" : tagClass = category.toLowerCase().replace(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/g,"").replace(/\s+/g, "-");
+        if (category == ":(") {
+          tagClass="sad";
+        }  else {
+          tagClass = category.toLowerCase().replace(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/g,"").replace(/\s+/g, "-");
+        } 
         classes += (" " + tagClass);
       });
       return classes;
