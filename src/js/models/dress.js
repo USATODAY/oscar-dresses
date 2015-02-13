@@ -5,7 +5,9 @@ define([
 ], function($, _, Backbone) {
     return Backbone.Model.extend({
         defaults: {
-            highlight: false
+            highlight: false,
+            isLiked: false,
+            isDisliked: false
         },
         initialize: function() {
             this.set({

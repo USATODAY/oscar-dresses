@@ -69,8 +69,8 @@
   transition: none;
   width: calc(25% - 10px);
   &:hover {
-    transform: translate(0, 5px);
-    transition: transform 200ms ease;
+    // transform: translate(0, 5px);
+    // transition: transform 200ms ease;
   }
 
   @media (max-width: 900px) {
@@ -185,5 +185,32 @@
   &:hover {
     background: rgba(255, 255, 255, 0.8);
     transition: all 250ms ease;
+    .iapp-feedback-buttons {
+      opacity: 1;
+    }
+  }
+}
+
+.iapp-feedback-buttons {
+  bottom: 1em;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  transform: translate(-50%, 0);
+  transition: opacity 250ms ease;
+  width: 100%;
+}
+
+.iapp-feedback-button {
+  background: $purple;
+  color: white;
+  display: inline-block;
+  font-family: "Futura Today Demibold", Arial,sans-serif;
+  margin: 0 0.5em;
+  padding: .5em;
+  text-transform: uppercase;
+  width: 5em;
+  &:hover {
+    background: lighten($purple, 10);
   }
 }
