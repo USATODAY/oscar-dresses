@@ -6,7 +6,7 @@ this["templates"]["app-view.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<h1 class="iapp-page-header">2014 Oscar nominated (and not-so-nominated) Movie Guide</h1>\n<p class="iapp-page-chatter">Oscar season is officially here, and if you’re like some of us wannabe movie buffs, you may have let a few of 2014’s most notable movies slip through the cracks. USA TODAY\'s 2014 Movie Guide to the rescue. Just click the filters and get as specific as you want. Who knows? Your new favorite flick may be out there and you didn’t even know it. If you want to stick to award-worthy films, click “Oscar nominated.”</p>\n<p class="time-stamp"></p>\n<div class="iapp-filters-wrap"></div> \n<div id="card-wrap"></div>\n<p class="iapp-credits"><strong>Credits:</strong> Ryan Carey-Mahoney, Mitchell Thorson, Lori Grisham, USA TODAY</p>\n\n<div class="modal-overlay"></div>';
+__p += '<h1 class="iapp-page-header">Headline</h1>\n<p class="iapp-page-chatter">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi molestias placeat, aliquid eos ea, eaque odio a? Tenetur obcaecati iusto similique ullam quasi officiis mollitia ut dolores, architecto porro saepe.</p>\n<p class="time-stamp"></p>\n<div class="iapp-filters-wrap"></div> \n<div id="card-wrap"></div>\n\n<div class="modal-overlay"></div>';
 
 }
 return __p
@@ -79,7 +79,7 @@ var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="category-bar">\n\n</div>\n<div class="title-overlay">\n    <h2>' +
 ((__t = ( person_name)) == null ? '' : __t) +
-'</h2>\n    <div class="iapp-feedback-buttons">\n        <h4 class="iapp-like-button iapp-feedback-button">Like</h4>\n        <h4 class="iapp-dislike-button iapp-feedback-button">Dislike</h4>\n        \n    </div>\n</div>\n<img class="cover-img" src="' +
+'</h2>\n    <div class="iapp-feedback-buttons">\n        <h4 class="iapp-like-button iapp-feedback-button">Like</h4>\n        <h4 class="iapp-dislike-button iapp-feedback-button">Dislike</h4>     \n    </div>\n</div>\n<img class="cover-img" src="' +
 ((__t = (photo_url)) == null ? '' : __t) +
 '" alt="' +
 ((__t = ( person_name)) == null ? '' : __t) +
