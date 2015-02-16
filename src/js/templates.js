@@ -77,13 +77,15 @@ this["templates"]["card-front.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="category-bar">\n\n</div>\n<div class="title-overlay">\n    <h2>' +
-((__t = ( person_name)) == null ? '' : __t) +
-'</h2>\n    <div class="iapp-feedback-buttons">\n        <h4 class="iapp-like-button iapp-feedback-button">Like</h4>\n        <h4 class="iapp-dislike-button iapp-feedback-button">Dislike</h4>     \n    </div>\n</div>\n<img class="cover-img" src="' +
+__p += '<img class="cover-img" src="' +
 ((__t = (photo_url)) == null ? '' : __t) +
 '" alt="' +
 ((__t = ( person_name)) == null ? '' : __t) +
-'">\n';
+'">\n<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">' +
+((__t = ( person_name)) == null ? '' : __t) +
+'</h2>\n    <p class="iapp-card-info-text">' +
+((__t = ( photo_caption)) == null ? '' : __t) +
+'</p>\n    <div class="iapp-feedback-buttons">\n        <h4 class="iapp-like-button iapp-feedback-button">Like</h4>\n        <h4 class="iapp-dislike-button iapp-feedback-button">Dislike</h4>     \n    </div>\n</div>\n';
 
 }
 return __p

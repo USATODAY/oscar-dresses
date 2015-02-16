@@ -58,12 +58,15 @@
 }
 
 .small-card {
+  border-radius: 5px;
+  color: $dark-grey;
   cursor: pointer;
   float: left;
   height: auto;
   margin-bottom: 10px;
   margin-right: 10px;
   max-width: 100%;
+  overflow: hidden;
   position: relative;
   text-align: center;
   transition: none;
@@ -71,6 +74,10 @@
   &:hover {
     // transform: translate(0, 5px);
     // transition: transform 200ms ease;
+  }
+
+  @media (min-width: 1400px) {
+    width: calc(16.66666667% - 10px);
   }
 
   @media (max-width: 900px) {
@@ -81,9 +88,18 @@
     width: calc(50% - 10px);
   }
 
-  @media (max-width: 500px) {
-    margin-right: 0;
-    width: 100%;
+  // @media (max-width: 500px) {
+  //   margin-right: 0;
+  //   width: 100%;
+  // }
+
+   &:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 250ms ease;
+    .iapp-feedback-button {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
   }
 }
 
@@ -182,14 +198,7 @@
     transition: all 250ms ease;
   }
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.8);
-    transition: all 250ms ease;
-    .iapp-feedback-button {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
-  }
+ 
 }
 
 .iapp-feedback-buttons {
@@ -209,6 +218,7 @@
   margin: 0 0.5em;
   opacity: 0;
   padding: .5em;
+  text-align: center;
   text-transform: uppercase;
   transform: translate(0,1em);
   transition: all 250ms ease;
@@ -224,4 +234,19 @@
 
 .iapp-dislike-button {
   transition-delay: 200ms;
+}
+
+.iapp-card-info {
+  padding: 1em;
+  text-align: left;
+}
+
+.iapp-card-info-header {
+  font-family: "Futura Today Demibold", Arial,sans-serif;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.iapp-card-info-text {
+  margin: 1em 0;
 }
