@@ -5,11 +5,11 @@ define([
   'isotope',
   'underscore',
   'lib/BackboneRouter',
-  'collections/dresses',
   'views/appView',
+  'dataManager',
   'jquery_ui_touch_punch'
   ], 
-  function(require, jQuery, brightcove, Isotope, _, Backbone, moviesCollection, appView) {
+  function(require, jQuery, brightcove, Isotope, _, Backbone, appView, dataManager) {
 
 
   return {
@@ -19,7 +19,11 @@ define([
           // make Isotope a jQuery plugin
           $.bridget( 'isotope', Isotope );
 
-          appview = new appView({collection: new moviesCollection()});
+          //Make data request
+          
+          dataManager.getData();
+
+          appview = new appView();
           Backbone.history.start();
         }
       );   

@@ -21,8 +21,7 @@ define([
     return Backbone.Collection.extend({
 
       // Reference to this collection's model.
-      model: dressModel,
-      url: dataURL
+      model: dressModel
 
 
     });
