@@ -11,15 +11,11 @@ define([
       tagName: "div",
 
       className: function() {
-        var categories = this.model.get("categories");
+        var tags = this.model.get("tags");
         var classes = "card small-card";
-        _.each(categories, function(category) {
-          var tagClass;
-          if (category == ":(") {
-            tagClass = "sad";
-          } else {
-            tagClass = category.toLowerCase().replace(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/g, "").replace(/\s+/g, "-");
-          }
+        _.each(tags, function(tag) {
+          var tagClass = tag;
+          
           classes += (" " + tagClass);
         });
         return classes;

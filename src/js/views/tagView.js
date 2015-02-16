@@ -33,14 +33,16 @@ define(
             } else {
                 this.$el.addClass('unavailable');
             }
+            Backbone.trigger('tags:filter-ready');
         },
 
         onModelChangeActive: function() {
             if (this.model.get('isActive')) {
-               this.$el.addClass('active'); 
+               this.$el.addClass('iapp-selected'); 
             } else {
-                this.$el.removeClass('active'); 
+                this.$el.removeClass('iapp-selected'); 
             }
+
         }
     });
 

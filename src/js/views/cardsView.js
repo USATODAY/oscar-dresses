@@ -26,6 +26,7 @@ define([
       this.listenTo(this.collection, 'change', this.showDetail);
       this.listenTo(router, "highlight", this.onHighlightRoute);
       this.listenTo(router, "homeRoute", this.onHomeRoute);
+      this.listenTo(Backbone, "filters:update", this.filter);
       this.render();
       
     },
@@ -113,12 +114,19 @@ define([
       this.$el.find(".time-stamp").html(objData[0].timestamp);
     },
 
-    filtersTemplate: templates["tags.html"],
-    renderFilters: function() {
-      this.$el.find(".iapp-filters-wrap").html(this.filtersTemplate({tags: tags}));
-    },
+    filter: function(filterArray) {
+      console.log('filter');
+      console.log(filterArray);
 
-    currentFilter: [],
+      
+        filterArray = _.map(filterArray, function(filter) {
+          return '.' + filter;
+        });
+        var filterStr = filterArray.join('');
+       
+        console.log(filterStr);
+      this.$el.isotope({ filter: filterStr });
+    },
 
     setFilter: function(e) {
       var $target = $(e.target);

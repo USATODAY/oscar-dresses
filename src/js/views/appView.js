@@ -24,8 +24,8 @@ define([
     el: ".iapp-page-wrap",
     events: {
       "click .modal-overlay": "removeHighlight",
-      "click .iapp-filter-button": "setFilter",
-      "click .iapp-filter-button-clear": "clearFilters"
+      // "click .iapp-filter-button": "setFilter",
+      // "click .iapp-filter-button-clear": "clearFilters"
     },
 
     initialize: function() {

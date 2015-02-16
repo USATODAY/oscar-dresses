@@ -1,7 +1,7 @@
 .iapp-filter-button {
-  border: solid 1px $dark-blue;
+  border: solid 1px $purple;
   display: inline-block;
-  color: $dark-blue;
+  color: $purple;
   cursor: pointer;
   float: left;
   background: none;
@@ -11,7 +11,7 @@
   text-transform: uppercase;
 
   &.iapp-selected {
-    background: $dark-blue;
+    background: $purple;
     color: white;
   }
 }

@@ -11,7 +11,7 @@ define(
         initialize: function() {
             
             this.on('change:isActive', this.onActiveChange); 
-            this.listenTo(Backbone, 'videos:filtered', this.onVideosFiltered);
+            this.listenTo(Backbone, 'items:filtered', this.onItemsFiltered);
             this.listenTo(Backbone, 'tags:reset', this.onTagsReset);
         },
 
@@ -25,7 +25,7 @@ define(
             Backbone.trigger('filters:update', filterArray);
         },
 
-        onVideosFiltered: function(availableTags) {
+        onItemsFiltered: function(availableTags) {
             
             
             this.each(function(model) {
