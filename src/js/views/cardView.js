@@ -72,15 +72,13 @@ define([
           if (this.model.get('isLiked')) {
             this.$el.addClass('iapp-liked');
           } else {
-            console.log('disliked 1');
-            this.$el.removeClass('iapp-liked')
+            this.$el.removeClass('iapp-liked');
           }
 
           if (this.model.get('isDisliked')) {
-            console.log('disliked 2');
             this.$el.addClass('iapp-disliked');
           } else {
-            this.$el.removeClass('iapp-disliked')
+            this.$el.removeClass('iapp-disliked');
           }
       }
     });
