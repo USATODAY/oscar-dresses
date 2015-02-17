@@ -9,7 +9,7 @@ define(
   function(jQuery, _, Backbone, TagView, dataManager) {
     return Backbone.View.extend({
         initialize: function() {
-           this.listenTo(Backbone, 'tags:filter-ready', this.filter);
+           this.listenTo(Backbone, 'tags:filter-ready', this.throttledFilter);
            this.listenTo(Backbone, 'video:set', this.advanceSub);
            this.listenTo(Backbone, 'tags:reset', this.onTagsReset);
            this.render();
@@ -49,11 +49,22 @@ define(
         },
         
         filter: function() {
-            console.log('view filter');
+            var _this = this;
+
+            console.log('filtering');
             this.$el.isotope({filter: ':not(.unavailable)'});
+
+            
+
+
+            
             
         },
         
+        throttledFilter: _.throttle(function() {
+                this.filter();
+            }, 100, {leading: false}
+        ),
         
        
         onTagsReset: function() {
