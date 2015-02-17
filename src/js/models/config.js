@@ -4,8 +4,15 @@ define(
 
         var staticInfo = JSON.parse($('.staticinfo').html());
         var isMobile = staticInfo.platform === 'mobile';
+        var isTablet = false;
+        if (!isMobile && window.Modernizr.touch) {
+            if (window.innerHeight < 1300 && window.innerWidth < 1300) {
+                isTablet = true
+            }
+        }
 
         return _.extend(staticInfo, {
-            isMobile: isMobile
+            isMobile: isMobile,
+            isTablet: isTablet
         });
 });

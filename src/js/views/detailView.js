@@ -14,19 +14,30 @@ define([
         template: templates["card-back.html"],
 
         events: {
-          "click .close-card": "removeHighlight",
+          "click .close-card": "removeCard",
           "click .facebook-share": "facebookShare",
-          "click .twitter-share": "twitterShare"
-         
+          "click .twitter-share": "twitterShare",
+          "click .iapp-detail-bg": "removeCard",
+          'click .iapp-like-button': 'onLikeClick',
+          'click .iapp-dislike-button': 'onDislikeClick' 
         },
 
         initialize: function() {
 
-          router.navigate("movie/" + this.model.get("rowNumber"));
-          this.listenTo(this.model, 'change', this.removeCard);
+          // router.navigate("movie/" + this.model.get("rowNumber"));
+          this.listenTo(Backbone, "highlight:remove", this.removeCard);
+          // this.listenTo(this.model, 'change:highlight', this.removeCard);
         },
         render: function() {
           this.$el.empty();
+          $('body').addClass('iapp-no-scroll');
+
+          if (this.model.get('isLiked')) {
+            this.$el.addClass('iapp-liked');
+          } else if (this.model.get('isDisliked')) {
+            this.$el.addClass('iapp-disliked');
+          }
+
           
           this.$el.html(this.template(this.model.attributes));   
           this.postRender(this.$el);
@@ -36,7 +47,6 @@ define([
         postRender: function(element) {
 
           _.defer(function() {
-            $(".modal-overlay").addClass("show");
 
             element.addClass("modal-show");
           }, element);
@@ -44,17 +54,18 @@ define([
         },
 
         removeCard: function() {
+            this.model.set({highlight: false}); 
+            $('body').removeClass('iapp-no-scroll');
           
-          if(!this.model.get("highlight")) {
             
-            $(".modal-overlay").removeClass("show");
             this.$el.removeClass("modal-show");
-            _.defer(function() { router.navigate("movie"); });
             var _this = this;
+            console.log('detail View remove card');
+            console.log(_this);
             _.delay(function() {
               _this.remove();
             }, 500);
-          }
+        
           
         },
 
@@ -63,37 +74,22 @@ define([
           this.model.set({"highlight": false});
         },
 
-        facebookShare: function(e) {
-            Analytics.click('facebook share clicked');
-
-            var shareURL = config.share_url;
-            var picture = this.model.get("basepath") + "fb-post.jpg";
-            var description = "You should probably watch… " + this.model.get("movietitle") + ", filtered just for you by @usatoday’s #2014movieguide";
-
-            
-            if (window.FB) {
-
-               e.preventDefault(); 
-
-               window.FB.ui({
-                  method: 'feed',
-                  href: window.location.href,
-                  picture: "",
-                  name: "2014 Oscar-nominated (and not-so-nominated) Movie Guide",
-                  caption: shareURL,
-                  description: description
-                }, function(response){});
-                
+        onLikeClick: function() {
+          this.model.set({'isLiked': !this.model.get('isLiked'), 'isDisliked': false});
+            if (this.model.get('isLiked')) {
+              this.$el.addClass('iapp-liked').removeClass('iapp-disliked');
+            } else {
+              this.$el.removeClass('iapp-liked')
             }
         },
-        twitterShare: function(e) {
-          Analytics.click('twitter share clicked');
 
-            if (!config.isMobile) {
-                e.preventDefault();
-
-                window.open(e.currentTarget.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=550,height=420');
-            }
+        onDislikeClick: function() {
+          this.model.set({'isDisliked': !this.model.get('isDisliked'), 'isLiked': false});
+          if (this.model.get('isDisliked')) {
+            this.$el.addClass('iapp-disliked').removeClass('iapp-liked');
+          } else {
+            this.$el.removeClass('iapp-disliked')
+          }  
         }
 
     });

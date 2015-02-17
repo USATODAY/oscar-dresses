@@ -23,7 +23,7 @@ define([
 
     initialize: function() {
       // this.listenTo(this.collection, 'reset', this.addAll);
-      this.listenTo(this.collection, 'change', this.showDetail);
+      this.listenTo(this.collection, 'change:highlight', this.showDetail);
       this.listenTo(router, "highlight", this.onHighlightRoute);
       this.listenTo(router, "homeRoute", this.onHomeRoute);
       this.listenTo(Backbone, "filters:update", this.filter);
@@ -61,16 +61,11 @@ define([
        }
     },
     showDetail: function(model) {
-
-      if(model.get("highlight")) {
+      if(model.get('highlight')) {
         this.detailView =  new detailView({model: model});
-
-        $(".iapp-page-wrap").append(this.detailView.render().el);
-        
+        this.$el.append(this.detailView.render().el);
       }
-
       
-
     },
 
     // template: templates["cards-view.html"], 

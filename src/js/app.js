@@ -5,11 +5,12 @@ define([
   'isotope',
   'underscore',
   'lib/BackboneRouter',
+  'models/config',
   'views/appView',
   'dataManager',
   'jquery_ui_touch_punch'
   ], 
-  function(require, jQuery, brightcove, Isotope, _, Backbone, appView, dataManager) {
+  function(require, jQuery, brightcove, Isotope, _, Backbone, config, appView, dataManager) {
 
 
   return {
@@ -18,6 +19,12 @@ define([
         function() {
           // make Isotope a jQuery plugin
           $.bridget( 'isotope', Isotope );
+
+
+          if (config.isTablet || config.isMobile) {
+            $('.iapp-page-wrap').addClass('iapp-touch-device');
+          }
+
 
           //Make data request
           
