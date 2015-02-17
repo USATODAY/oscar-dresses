@@ -4,9 +4,10 @@ define(
     'underscore',
     'backbone',
     'views/TagView',
+    'models/config',
     'dataManager'
   ],
-  function(jQuery, _, Backbone, TagView, dataManager) {
+  function(jQuery, _, Backbone, TagView, config, dataManager) {
     return Backbone.View.extend({
         initialize: function() {
            this.listenTo(Backbone, 'tags:filter-ready', this.throttledFilter);
@@ -22,8 +23,7 @@ define(
         
         render: function(data) {
 
-            //temp remove once config is in place
-            var config = { isMobile: false};
+            
 
             var _this = this;
             // this.$el.html(this.template({tag_text: dataManager.data.tag_text, greeting: this.getGreeting()}));
@@ -37,7 +37,7 @@ define(
                     
                     _this.$el.isotope({
                         itemSelector: '.iapp-filter-button',
-                        transitionDuration: (!config.isMobile) ? '0.4s' : 0,
+                        transitionDuration:  0,
                         layoutMode: 'fitRows'
 
                 });

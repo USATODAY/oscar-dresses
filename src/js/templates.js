@@ -16,11 +16,11 @@ this["templates"]["card-back.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '\n      <div class="card card-detail">\n      \n        <div class="iapp-detail-image-wrap">\n            <img src="' +
+__p += '\n      <div class="card card-detail">\n      <div class="iapp-card-status iapp-card-status-liked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" alt="" class="iapp-card-status-icon"></div>\n        <div class="iapp-card-status iapp-card-status-disliked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" alt="" class="iapp-card-status-icon"></div>\n      \n        <div class="iapp-detail-image-wrap">\n            <img src="' +
 ((__t = (photo_url)) == null ? '' : __t) +
 '" alt="' +
 ((__t = (person_name)) == null ? '' : __t) +
-'" class="iapp-detail-image">\n        </div>\n      \n        <div class="close-card"></div>\n      \n      \n      \n        <div class="iapp-detail-info">\n            <h2 class="card-back-header">' +
+'" class="iapp-detail-image">\n            <div class="iapp-feedback-buttons">\n                <h4 class="iapp-like-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" class="iapp-feedback-icon" alt="Like"></h4>\n                <h4 class="iapp-dislike-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" class="iapp-feedback-icon" alt="Dislike"></h4>     \n            </div>\n        </div>\n      \n        <div class="close-card"></div>\n      \n      \n      \n        <div class="iapp-detail-info">\n            <h2 class="card-back-header">' +
 ((__t = ( person_name )) == null ? '' : __t) +
 ' </h2>\n            <p class="iapp-summary">' +
 ((__t = ( photo_caption )) == null ? '' : __t) +
@@ -34,15 +34,15 @@ this["templates"]["card-front.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<img class="cover-img" src="' +
+__p += '<div class="iapp-card-front-image-wrap">\n    <img class="cover-img" src="' +
 ((__t = (photo_url)) == null ? '' : __t) +
 '" alt="' +
 ((__t = ( person_name)) == null ? '' : __t) +
-'">\n<div class="iapp-card-status iapp-card-status-liked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" alt="" class="iapp-card-status-icon"></div>\n<div class="iapp-card-status iapp-card-status-disliked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" alt="" class="iapp-card-status-icon"></div>\n<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">' +
+'">\n    <div class="iapp-feedback-buttons">\n        <h4 class="iapp-like-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" class="iapp-feedback-icon" alt="Like"></h4>\n        <h4 class="iapp-dislike-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" class="iapp-feedback-icon" alt="Dislike"></h4>     \n    </div>\n</div>\n<div class="iapp-card-status iapp-card-status-liked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" alt="" class="iapp-card-status-icon"></div>\n<div class="iapp-card-status iapp-card-status-disliked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" alt="" class="iapp-card-status-icon"></div>\n<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">' +
 ((__t = ( person_name)) == null ? '' : __t) +
 '</h2>\n    <p class="iapp-card-info-text">' +
 ((__t = ( photo_caption)) == null ? '' : __t) +
-'</p>\n    <div class="iapp-feedback-buttons">\n        <h4 class="iapp-like-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" class="iapp-feedback-icon" alt="Like"></h4>\n        <h4 class="iapp-dislike-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" class="iapp-feedback-icon" alt="Dislike"></h4>     \n    </div>\n</div>\n';
+'</p>\n    \n</div>\n';
 
 }
 return __p

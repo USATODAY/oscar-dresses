@@ -1,7 +1,4 @@
-/* Effect 8: 3D flip horizontal */
 .modal {
-  // backface-visibility: hidden;
-  // background-color: rgba(255, 255, 255, 0.8);
   height: 100%;
   position: fixed;
   top: 50%;
@@ -11,7 +8,6 @@
   z-index: 2000;
   visibility: hidden;
   width: 100%;
-  // perspective: 1300px;
 }
 
 .modal-show {
@@ -22,25 +18,20 @@
   p {
       font-family: "Futura Today Light", Arial, sans-serif;
     }
-  // padding: 2em;
   position: static;
   margin-top: 1em;
   max-width: 600px;
-  // transform-style: preserve-3d;
-  // transform: rotateY(-70deg);
-  transform: translate(0, -100%);
   transition: all 0.5s ease;
   width: 50%;
   opacity: 0;
   overflow: hidden;
+  position: relative;
   @media (max-width: 600px) {
     width: 80%;
   }
 }
 
 .modal-show .card-detail {
-  // transform: rotateY(0deg);
-  transform: translate(0, 0);
   opacity: 1;
 
 

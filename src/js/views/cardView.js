@@ -10,6 +10,11 @@ define([
     return Backbone.View.extend({
       tagName: "div",
 
+      initialize: function() {
+        this.listenTo(this.model, 'change:isLiked', this.onLikedChange);
+        this.listenTo(this.model, 'change:isDisliked', this.onLikedChange);
+      },
+
       className: function() {
         var tags = this.model.get("tags");
         var classes = "card small-card";
@@ -46,14 +51,37 @@ define([
         });
       },
 
-      onLikeClick: function() {
-        this.model.set({'isLiked': true, 'isDisliked': false});
-        this.$el.addClass('iapp-liked').removeClass('iapp-disliked');
+      onLikeClick: function(e) {
+
+        e.stopImmediatePropagation();
+        this.model.set({'isLiked': !this.model.get('isLiked'), 'isDisliked': false});
+        
+        
       },
 
-      onDislikeClick: function() {
-        this.model.set({'isDisliked': true, 'isLiked': false});
-        this.$el.addClass('iapp-disliked').removeClass('iapp-liked');
+      onDislikeClick: function(e) {
+        e.stopImmediatePropagation();
+        this.model.set({'isDisliked': !this.model.get('isDisliked'), 'isLiked': false});
+        
+        
+      },
+
+      onLikedChange: function() {
+        
+        
+          if (this.model.get('isLiked')) {
+            this.$el.addClass('iapp-liked');
+          } else {
+            console.log('disliked 1');
+            this.$el.removeClass('iapp-liked')
+          }
+
+          if (this.model.get('isDisliked')) {
+            console.log('disliked 2');
+            this.$el.addClass('iapp-disliked');
+          } else {
+            this.$el.removeClass('iapp-disliked')
+          }
       }
     });
 

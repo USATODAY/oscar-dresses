@@ -104,6 +104,13 @@
   }
 }
 
+.iapp-touch-device { 
+  .iapp-feedback-button {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+}
+
 
 
 .category-bar {
@@ -203,26 +210,25 @@
 }
 
 .iapp-feedback-buttons {
-  // bottom: 1em;
-  left: 50%;
+  bottom: 1em;
+  // left: 50%;
   
   position: absolute;
-  top: 1em;
-  transform: translate(-50%, 0);
-  width: 13rem;
+  // transform: translate(-50%, 0);
+  width: 100%;
 }
 
 .iapp-feedback-button {
   background: $purple;
+  bottom: 0;
   color: white;
   display: inline-block;
   font-family: "Futura Today Demibold", Arial,sans-serif;
-  margin: 0 0.5rem;
   opacity: 0;
   padding: .25em;
+  position: absolute;
   text-align: center;
   text-transform: uppercase;
-  transform: translate(0,1em);
   transition: all 250ms ease;
   width: 5rem;
   &:hover {
@@ -235,11 +241,17 @@
 }
 
 .iapp-like-button {
+  left: 10px;
   transition-delay: 100ms;
 }
 
 .iapp-dislike-button {
+  right: 10px;
   transition-delay: 200ms;
+}
+
+.iapp-card-front-image-wrap {
+  position: relative;
 }
 
 .iapp-card-info {
@@ -266,6 +278,7 @@
   transition: opacity 500ms ease;
   transform: rotate(45deg);
   width: 100px;
+  z-index: 20;
 }
 
 .iapp-card-status-liked {
@@ -293,7 +306,13 @@
 }
 
 .iapp-detail-image-wrap {
+  position: relative;
   width: 100%;
+}
+
+.card-detail:hover .iapp-feedback-button {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 .iapp-detail-image {
