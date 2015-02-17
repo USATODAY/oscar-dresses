@@ -81,11 +81,11 @@ __p += '<img class="cover-img" src="' +
 ((__t = (photo_url)) == null ? '' : __t) +
 '" alt="' +
 ((__t = ( person_name)) == null ? '' : __t) +
-'">\n<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">' +
+'">\n<div class="iapp-card-status iapp-card-status-liked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" alt="" class="iapp-card-status-icon"></div>\n<div class="iapp-card-status iapp-card-status-disliked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" alt="" class="iapp-card-status-icon"></div>\n<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">' +
 ((__t = ( person_name)) == null ? '' : __t) +
 '</h2>\n    <p class="iapp-card-info-text">' +
 ((__t = ( photo_caption)) == null ? '' : __t) +
-'</p>\n    <div class="iapp-feedback-buttons">\n        <h4 class="iapp-like-button iapp-feedback-button">Like</h4>\n        <h4 class="iapp-dislike-button iapp-feedback-button">Dislike</h4>     \n    </div>\n</div>\n';
+'</p>\n    <div class="iapp-feedback-buttons">\n        <h4 class="iapp-like-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" class="iapp-feedback-icon" alt="Like"></h4>\n        <h4 class="iapp-dislike-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" class="iapp-feedback-icon" alt="Dislike"></h4>     \n    </div>\n</div>\n';
 
 }
 return __p

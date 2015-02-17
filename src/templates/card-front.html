@@ -1,9 +1,11 @@
 <img class="cover-img" src="<%=photo_url%>" alt="<%= person_name%>">
+<div class="iapp-card-status iapp-card-status-liked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" alt="" class="iapp-card-status-icon"></div>
+<div class="iapp-card-status iapp-card-status-disliked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" alt="" class="iapp-card-status-icon"></div>
 <div class="iapp-card-info">
     <h2 class="iapp-card-info-header"><%= person_name%></h2>
     <p class="iapp-card-info-text"><%= photo_caption%></p>
     <div class="iapp-feedback-buttons">
-        <h4 class="iapp-like-button iapp-feedback-button">Like</h4>
-        <h4 class="iapp-dislike-button iapp-feedback-button">Dislike</h4>     
+        <h4 class="iapp-like-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" class="iapp-feedback-icon" alt="Like"></h4>
+        <h4 class="iapp-dislike-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" class="iapp-feedback-icon" alt="Dislike"></h4>     
     </div>
 </div>
