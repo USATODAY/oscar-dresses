@@ -22,7 +22,7 @@ define([
       },
 
       events: {
-        // "click": "setHighlight",
+        "click": "setHighlight",
         'click .iapp-like-button': 'onLikeClick',
         'click .iapp-dislike-button': 'onDislikeClick'
       },

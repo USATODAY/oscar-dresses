@@ -1,7 +1,9 @@
 .card {
   background-color: #FFFFFF;
+  border-radius: 5px;
   box-shadow: $shadow-standard;
-
+  color: $dark-grey;
+  
   margin: 0 auto 2em auto;
   // padding: 2em;
   // position: static;
@@ -58,8 +60,7 @@
 }
 
 .small-card {
-  border-radius: 5px;
-  color: $dark-grey;
+  
   cursor: pointer;
   float: left;
   height: auto;
@@ -289,4 +290,16 @@
   position: absolute;
   transform: rotate(-45deg);
   width: 25px;
+}
+
+.iapp-detail-image-wrap {
+  width: 100%;
+}
+
+.iapp-detail-image {
+  width: 100%;
+}
+
+.iapp-detail-info {
+  padding: 1em;
 }

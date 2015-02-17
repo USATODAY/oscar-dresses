@@ -14,19 +14,21 @@ define([
         template: templates["card-back.html"],
 
         events: {
-          "click .close-card": "removeHighlight",
+          "click .close-card": "removeCard",
           "click .facebook-share": "facebookShare",
-          "click .twitter-share": "twitterShare"
-         
+          "click .twitter-share": "twitterShare",
+          "click .iapp-detail-bg": "removeCard" 
         },
 
         initialize: function() {
 
-          router.navigate("movie/" + this.model.get("rowNumber"));
-          this.listenTo(this.model, 'change', this.removeCard);
+          // router.navigate("movie/" + this.model.get("rowNumber"));
+          this.listenTo(Backbone, "highlight:remove", this.removeCard);
+          // this.listenTo(this.model, 'change:highlight', this.removeCard);
         },
         render: function() {
           this.$el.empty();
+          $('body').addClass('iapp-no-scroll');
           
           this.$el.html(this.template(this.model.attributes));   
           this.postRender(this.$el);
@@ -36,7 +38,6 @@ define([
         postRender: function(element) {
 
           _.defer(function() {
-            $(".modal-overlay").addClass("show");
 
             element.addClass("modal-show");
           }, element);
@@ -44,17 +45,18 @@ define([
         },
 
         removeCard: function() {
+            this.model.set({highlight: false}); 
+            $('body').removeClass('iapp-no-scroll');
           
-          if(!this.model.get("highlight")) {
             
-            $(".modal-overlay").removeClass("show");
             this.$el.removeClass("modal-show");
-            _.defer(function() { router.navigate("movie"); });
             var _this = this;
+            console.log('detail View remove card');
+            console.log(_this);
             _.delay(function() {
               _this.remove();
             }, 500);
-          }
+        
           
         },
 

@@ -7,7 +7,8 @@ define([
         defaults: {
             highlight: false,
             isLiked: false,
-            isDisliked: false
+            isDisliked: false,
+            highlight: false
         },
         initialize: function() {
 

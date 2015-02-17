@@ -23,7 +23,7 @@ define([
   return Backbone.View.extend({
     el: ".iapp-page-wrap",
     events: {
-      "click .modal-overlay": "removeHighlight",
+      // "click .modal-overlay": "removeHighlight",
       // "click .iapp-filter-button": "setFilter",
       // "click .iapp-filter-button-clear": "clearFilters"
     },
@@ -68,14 +68,10 @@ define([
     },
     showDetail: function(model) {
 
-      if(model.get("highlight")) {
-        this.detailView =  new detailView({model: model});
+      console.log(model);
+      // this.detailView =  new detailView({model: model});
 
-        $(".iapp-page-wrap").append(this.detailView.render().el);
-        
-      }
-
-      
+      // this.$el.append(this.detailView.render().el);
 
     },
 
@@ -128,8 +124,8 @@ define([
     },
 
     removeHighlight: function() {
-      Analytics.click("closed card");
-     this.detailView.model.set({"highlight": false});
+      // Analytics.click("closed card");
+      Backbone.trigger("highlight:remove");
     },
     addTimeStamp: function() {
       var objData = this.collection.toJSON();
