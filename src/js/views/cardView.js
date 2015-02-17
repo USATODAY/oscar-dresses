@@ -23,6 +23,8 @@ define([
 
       events: {
         // "click": "setHighlight",
+        'click .iapp-like-button': 'onLikeClick',
+        'click .iapp-dislike-button': 'onDislikeClick'
       },
 
       template: templates["card-front.html"],
@@ -42,6 +44,16 @@ define([
         this.model.set({
           "highlight": true
         });
+      },
+
+      onLikeClick: function() {
+        this.model.set({'isLiked': true, 'isDisliked': false});
+        this.$el.addClass('iapp-liked').removeClass('iapp-disliked');
+      },
+
+      onDislikeClick: function() {
+        this.model.set({'isDisliked': true, 'isLiked': false});
+        this.$el.addClass('iapp-disliked').removeClass('iapp-liked');
       }
     });
 
