@@ -80,19 +80,19 @@
     @include BoxShadowHelper(4);
     color: $purple;
     
-    height: 60px;
+    height: 80px;
     position: absolute;
     right: 50%;
     text-transform: uppercase;
     transform: translate(50%, 200%);
     transition: transform 500ms ease;
-    width: 60px;
+    width: 80px;
     z-index: 100;
 
-    @media (min-width: $mid-break) {
-      height: 70px;
-      width: 70px 
-    }
+    // @media (min-width: $mid-break) {
+    //   height: 80px;
+    //   width: 80px 
+    // }
 }
 
 .iapp-menu-button {
@@ -102,19 +102,19 @@
   @include BoxShadowHelper(4);
   color: white;
 
-  height: 60px;
+  height: 80px;
   position: absolute;
   right: 50%;
   text-transform: uppercase;
   transform: translate(50%, 200%);
   transition: transform 500ms ease;
-  width: 60px;
+  width: 80px;
   z-index: 100;
 
-  @media (min-width: $mid-break) {
-    height: 70px;
-    width: 70px 
-  }
+  // @media (min-width: $mid-break) {
+  //   height: 70px;
+  //   width: 70px 
+  // }
 }
 
 .iapp-button-text {
@@ -143,6 +143,12 @@
   .iapp-menu-scoreboard-icon, .iapp-menu-scoreboard-score {
     float: left;
   }
+
+  .iapp-menu-scoreboard-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 .iapp-menu-scoreboard-dislikes {
@@ -151,6 +157,12 @@
 
   .iapp-menu-scoreboard-icon, .iapp-menu-scoreboard-score {
     float: right;
+  }
+
+  .iapp-menu-scoreboard-label {
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }
 

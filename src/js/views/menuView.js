@@ -22,6 +22,8 @@ define([
             },
             initialize: function() {
                 this.listenTo(this.model, 'change:isMenuOpen', this.updateState);
+                this.listenTo(this.model, 'change:dislikesRemaining', this.onDislikeChange);
+                this.listenTo(this.model, 'change:likesRemaining', this.onLikeChange);
                 this.render();
             },
             render: function() {
@@ -48,6 +50,14 @@ define([
             },
             onMenuClick: function() {
                 this.model.set({isMenuOpen: true});
+            },
+            onLikeChange: function() {
+                var numLikesRemaining = this.model.get('likesRemaining');
+                this.$('.iapp-menu-scoreboard-likes').find('.iapp-menu-scoreboard-score').text(numLikesRemaining);
+            },
+            onDislikeChange: function() {
+                var numDislikesRemaining = this.model.get('dislikesRemaining');
+                this.$('.iapp-menu-scoreboard-dislikes').find('.iapp-menu-scoreboard-score').text(numDislikesRemaining);
             }
 
         });

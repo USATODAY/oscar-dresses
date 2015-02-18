@@ -22,6 +22,8 @@ define(
             }
             this.on('change', this.onChange);
             this.listenTo(Backbone, 'window:resize', this.onResize);
+            this.listenTo(Backbone, 'liked:update', this.onLikeUpdate);
+            this.listenTo(Backbone, 'disliked:update', this.onDislikeUpdate);
         },
         onChange: function() {
             if (this.get('isMenuOpen')) {
@@ -37,6 +39,14 @@ define(
                 this.set({isMenuOpen: true});
             }
         }, 500),
+
+        onDislikeUpdate: function(numDislikes) {
+            this.set({'dislikesRemaining': 10 - numDislikes});
+        },
+
+        onLikeUpdate: function(numLikes) {
+            this.set({'likesRemaining': 10 - numLikes});
+        },
         
 
         mobileThreshhold: 1000
