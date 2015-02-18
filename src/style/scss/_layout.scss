@@ -1,5 +1,6 @@
 .iapp-page-wrap {
   margin: 0 auto;
+  overflow-x: hidden;
   padding: 2%;
   position: relative;
   width: 100%;
@@ -69,6 +70,28 @@
   }
 }
 
+
+
+.iapp-card-wrap {
+  float: left;
+  width: calc(75% - 1em);
+}
+
+
+
+@media (max-width: 1000px) {
+
+.iapp-card-wrap {
+  float: none;
+  width: 100%;
+}
+}
+
 .iapp-no-scroll {
   overflow: hidden;
+}
+
+.iapp-card-wrap-full-width {
+  float: none;
+  width: 100%;
 }

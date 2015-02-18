@@ -6,7 +6,7 @@ this["templates"]["app-view.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<h1 class="iapp-page-header">Headline</h1>\n<p class="iapp-page-chatter">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi molestias placeat, aliquid eos ea, eaque odio a? Tenetur obcaecati iusto similique ullam quasi officiis mollitia ut dolores, architecto porro saepe.</p>\n<p class="time-stamp"></p>\n<div class="iapp-filters-wrap"></div> \n<div id="card-wrap"></div>\n';
+__p += '<div class="iapp-project-info-wrap">\n    <h1 class="iapp-page-header">Headline</h1>\n    <p class="iapp-page-chatter">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi molestias placeat, aliquid eos ea, eaque odio a? Tenetur obcaecati iusto similique ullam quasi officiis mollitia ut dolores, architecto porro saepe.</p>\n</div>\n<div class="iapp-menu"></div>\n<div id="card-wrap" class="iapp-card-wrap"></div>\n<div class="iapp-menu-button"><div class="iapp-button-text">Menu</div></div>\n';
 
 }
 return __p
@@ -43,6 +43,42 @@ __p += '<div class="iapp-card-front-image-wrap">\n    <img class="cover-img" src
 '</h2>\n    <p class="iapp-card-info-text">' +
 ((__t = ( photo_caption)) == null ? '' : __t) +
 '</p>\n    \n</div>\n';
+
+}
+return __p
+};
+
+this["templates"]["menu.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-menu-close iapp-clickable"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/close.svg" alt="close"></div>\n<h3 class="iapp-menu-header">Share</h3>\n<div class="iapp-share-wrap"></div>\n<h3 class="iapp-menu-header">Filters</h3>\n<div class="iapp-filters-wrap"></div> ';
+
+}
+return __p
+};
+
+this["templates"]["share.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-share-buttons">\n    <a href="https://twitter.com/intent/tweet?url=' +
+((__t = (twitterShare)) == null ? '' : __t) +
+'&text=' +
+((__t = (encodedShare)) == null ? '' : __t) +
+'" class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/twitter.svg" alt="Twitter share"></a>\n    <a href=\'https://www.facebook.com/dialog/feed?display=popup&app_id=' +
+((__t = (fb_id)) == null ? '' : __t) +
+'&link=' +
+((__t = (fbShare)) == null ? '' : __t) +
+'&picture=' +
+((__t = (stillimage)) == null ? '' : __t) +
+'&name=&description=' +
+((__t = (encodedShare)) == null ? '' : __t) +
+'&redirect_uri=' +
+((__t = (fb_redirect)) == null ? '' : __t) +
+'\' class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/facebook.svg" alt="Facebook share"></a>\n    <a href="' +
+((__t = (email_link)) == null ? '' : __t) +
+'" class="iapp-share-button iapp-share-email"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/email.svg" alt="Email share"></a>\n</div>';
 
 }
 return __p

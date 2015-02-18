@@ -7,7 +7,7 @@ define([
     "models/config",
     "router"
     ], 
-    function(jQuery, _, Backbbone, Analytics, templates, config, router) {
+    function(jQuery, _, Backbone, Analytics, templates, config, router) {
       return Backbone.View.extend({
         tagName: "div",
         className: "modal",
@@ -79,7 +79,7 @@ define([
             if (this.model.get('isLiked')) {
               this.$el.addClass('iapp-liked').removeClass('iapp-disliked');
             } else {
-              this.$el.removeClass('iapp-liked')
+              this.$el.removeClass('iapp-liked');
             }
         },
 
@@ -88,7 +88,7 @@ define([
           if (this.model.get('isDisliked')) {
             this.$el.addClass('iapp-disliked').removeClass('iapp-liked');
           } else {
-            this.$el.removeClass('iapp-disliked')
+            this.$el.removeClass('iapp-disliked');
           }  
         }
 

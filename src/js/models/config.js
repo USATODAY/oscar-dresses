@@ -7,7 +7,7 @@ define(
         var isTablet = false;
         if (!isMobile && window.Modernizr.touch) {
             if (window.innerHeight < 1300 && window.innerWidth < 1300) {
-                isTablet = true
+                isTablet = true;
             }
         }
 

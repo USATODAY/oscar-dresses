@@ -1,0 +1,44 @@
+.iapp-menu {
+  float: right;
+  position: relative;
+  width: 25%;   
+}
+
+.iapp-menu-hide {
+  transform: translate(120%, 0);
+}
+
+@media (max-width: 1000px) {
+  .iapp-menu {
+    float: none;
+    height: 100%;
+    left: 0;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    transform: translate(100%, 0);
+    transition: transform 500ms ease;
+    width: 100%;  
+    &.iapp-menu-show {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 2em;
+        transform: translate(0, 0);
+        z-index: 20;
+    } 
+  }
+}
+
+.iapp-menu-header {
+  color: $purple;
+  font-family: "Futura Today Light", Arial, sans-serif;
+  font-size: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.iapp-menu-close {
+    position: absolute;
+    right: 1em;
+    top: 0;
+    width: 60px;
+}
