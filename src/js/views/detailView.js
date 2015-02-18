@@ -7,7 +7,7 @@ define([
     "models/config",
     "router"
     ], 
-    function(jQuery, _, Backbbone, Analytics, templates, config, router) {
+    function(jQuery, _, Backbone, Analytics, templates, config, router) {
       return Backbone.View.extend({
         tagName: "div",
         className: "modal",

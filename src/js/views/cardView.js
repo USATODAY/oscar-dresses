@@ -5,7 +5,7 @@ define([
     "analytics",
     "templates"
   ],
-  function(jQuery, _, Backbbone, Analytics, templates) {
+  function(jQuery, _, Backbone, Analytics, templates) {
 
     return Backbone.View.extend({
       tagName: "div",

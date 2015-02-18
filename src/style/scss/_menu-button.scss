@@ -1,0 +1,23 @@
+.iapp-menu-button {
+  background: $purple;
+  bottom: 1em;
+  border-radius: 50%;
+  box-shadow: $shadow-standard;
+  color: white;
+  display: none;
+  height: 60px;
+  position: fixed;
+  right: 1em;
+  text-transform: uppercase;
+  width: 60px;
+  @media (max-width: 1000px) {
+    display: block;
+  }
+}
+
+.iapp-button-text {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

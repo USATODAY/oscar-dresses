@@ -56,21 +56,24 @@ define(
                     dataObj.tags = _.without(dataObj.tags, "");
                 }
 
-                dataObj.tags = _.map(dataObj.tags, function(tag) {
-                    return tag.replace(/\s+/g, '-');
-                });
-
                 _.each(dataObj.tags, function(tag) {
                     //add each tag to master tags array
 
-
-                    
                     var tagObj = {
-                        tagName: tag
+                        tagName: tag.replace(/\s+/g, '-'),
+                        tagPretty: tag
                     };
-
+                    
+                    
                     tags.push(tagObj);
                 });
+
+                dataObj.tags = _.map(dataObj.tags, function(tag) {
+                    
+                    return tag.replace(/\s+/g, '-');
+                });
+
+
 
             });
 

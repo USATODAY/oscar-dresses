@@ -17,7 +17,7 @@ define(
         className: 'iapp-filter-button',
         // template: templates['tag.html'],
         render: function(data) {
-            this.$el.html(this.model.get('tagName'));    
+            this.$el.html(this.model.get('tagPretty'));    
             return this;
         },
         onClick: function() {
