@@ -15,7 +15,7 @@ define(
         },
 
         initialize: function() {
-            if (config.isMobile) {
+            if (config.isMobile || window.innerWidth < this.mobileThreshhold) {
                 this.set({
                     isMenuOpen: false
                 });

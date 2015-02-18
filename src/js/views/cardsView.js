@@ -118,7 +118,11 @@ define([
         this.$el.isotope({ filter: filterStr });
         _.delay(function() {
           $(window).trigger('scroll');
-        }, 800);
+        }, 1000);
+
+        _.delay(function() {
+          $(window).trigger('scroll');
+        }, 2000);
     },
 
     relayout: _.throttle(function() {

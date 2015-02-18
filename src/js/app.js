@@ -29,6 +29,10 @@ define([
             Backbone.trigger('window:resize');
           });
 
+          $(window).on('scroll', function() {
+            console.log('scroll event');
+          });
+
 
           //Make data request
           
