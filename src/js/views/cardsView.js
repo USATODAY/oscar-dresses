@@ -11,6 +11,7 @@ define([
   'views/cardView',
   'views/detailView',
   'router',
+  'unveil',
   'jquery_ui_touch_punch'
   ], 
   function(jQuery, imagesLoaded, Isotope, Analytics, _, Backbone, templates, tags, config, cardView, detailView, router) {
@@ -22,7 +23,6 @@ define([
     },
 
     initialize: function() {
-      // this.listenTo(this.collection, 'reset', this.addAll);
       this.listenTo(this.collection, 'change:highlight', this.showDetail);
       this.listenTo(router, "highlight", this.onHighlightRoute);
       this.listenTo(router, "homeRoute", this.onHomeRoute);
@@ -30,7 +30,7 @@ define([
       this.listenTo(Backbone, 'menu:show', this.onMenuShow);
       this.listenTo(Backbone, 'menu:hide', this.onMenuHide);
       this.render();
-      
+
     },
 
     addOne: function(question) {
@@ -77,30 +77,28 @@ define([
       this.collection.each(this.addOne, this);
       
       var $el = this.$el;
+      var _this = this;
       
       $el.imagesLoaded( function() {
         $el.isotope( {
           itemSelector: '.card',
           transitionDuration: (!config.isMobile) ? '0.4s' : 0,
-          // layoutMode: 'fitRows'
         });
-        $el.isotope("on", "layoutComplete", function(iso) {
-          if (iso.filteredItems.length === 0) {
-            if ($(".iapp-no-results-wrap").length === 0) {
-              $el.after("<div class='iapp-no-results-wrap'><h3>You think a movie like that exists? Try again.</h3></div>");
-            }
-          } else {
-            $(".iapp-no-results-wrap").remove();
-          }
-        });
+        _this.unveilImages();
+    
       });
     },
 
-    $cardWrap: {},
+    unveilImages: function() {
 
-    addAll: function() {
-      
-    },
+      var _this = this;
+
+      this.$('.cover-img').unveil(200, function() {
+        $(this).imagesLoaded(function() {
+          _this.relayout();
+        });
+      });
+    }, 
 
     removeHighlight: function() {
       Analytics.click("closed card");
@@ -151,9 +149,9 @@ define([
           this.$el.find(".iapp-filter-button-clear").removeClass("show");
         }   
     },
-    relayout: function() {
+    relayout: _.throttle(function() {
       this.$el.isotope('layout');
-    },
+    }, 500),
 
     clearFilters: function(e) {
       this.currentFilter = [];

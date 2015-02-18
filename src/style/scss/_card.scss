@@ -111,35 +111,6 @@
     }
 }
 
-
-
-.category-bar {
-  // height: 30px;
-  font-family: "Futura Today Light", Arial, sans-serif;
-  font-size: 12px;
-  position: absolute;
-  left: 0;
-  text-align: left;
-  text-transform: uppercase;
-  top: 0;
-  width: 100%;
-  @extend .group;
-}
-
-.category {
-  color: white;
-  display: inline-block;
-  float: left;
-  // height: 100%;
-  margin: 0;
-  padding: 8px;
-  &.Health { background-color: $purple;}
-   &.Outbreak { background-color: $teal;}
-    &.USA { background-color: $blue;}
-    &.Myth-buster { background-color: $blue;}
-
-}
-
 .close-card {
   background-image: url('http://www.gannett-cdn.com/experiments/usatoday/2014/10/ebola-questions/img/close-icon.svg');
   cursor: pointer;
@@ -321,4 +292,14 @@
 
 .iapp-detail-info {
   padding: 1em;
+}
+
+.iapp-card-info-photo-credit {
+  color: $medium-grey;
+  font-size: 10px;
+}
+
+.iapp-card-back-photo-credit {
+  color: $medium-grey;
+  font-size: 0.8em;
 }
