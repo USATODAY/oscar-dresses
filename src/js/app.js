@@ -25,6 +25,10 @@ define([
             $('.iapp-page-wrap').addClass('iapp-touch-device');
           }
 
+          $(window).on('resize', function(e) {
+            Backbone.trigger('window:resize');
+          });
+
 
           //Make data request
           

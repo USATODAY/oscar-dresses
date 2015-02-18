@@ -17,16 +17,16 @@ define([
             el: '.iapp-menu',
             template: templates['menu.html'],
             events: {
-                'click .iapp-menu-close': 'onCloseClick'
+                'click .iapp-menu-close': 'onCloseClick',
+                "click .iapp-menu-button": "onMenuClick"
             },
             initialize: function() {
-                this.listenTo(Backbone, 'menu:show', this.onMenuShow);
-                this.listenTo(Backbone, 'menu:hide', this.onMenuHide);
+                this.listenTo(this.model, 'change:isMenuOpen', this.updateState);
                 this.render();
             },
             render: function() {
-
-                this.$el.html(this.template({}));
+                this.updateState();
+                this.$el.html(this.template(this.model.toJSON()));
                 this.addSubViews();
                 return this;
             },
@@ -36,15 +36,18 @@ define([
                 this.shareModel = new ShareModel();
                 this.shareView = new ShareView({model: this.shareModel});
             },
-            onMenuShow: function() {
-                console.log('on menu show');
-                this.$el.addClass('iapp-menu-show').removeClass('iapp-menu-hide');
-            },
-            onMenuHide: function() {
-                this.$el.removeClass('iapp-menu-show').addClass('iapp-menu-hide');
+            updateState: function() {
+                if (this.model.get('isMenuOpen')) {
+                    this.$el.addClass('iapp-menu-show').removeClass('iapp-menu-hide');
+                } else {
+                    this.$el.addClass('iapp-menu-hide').removeClass('iapp-menu-show');
+                }
             },
             onCloseClick: function() {
-                Backbone.trigger('menu:hide');
+                this.model.set({isMenuOpen: false});
+            },
+            onMenuClick: function() {
+                this.model.set({isMenuOpen: true});
             }
 
         });
