@@ -1,7 +1,7 @@
 .card {
   background-color: #FFFFFF;
   border-radius: 5px;
-  box-shadow: $shadow-standard;
+  @include BoxShadowHelper(3);
   color: $dark-grey;
   
   margin: 0 auto 2em auto;
@@ -60,7 +60,7 @@
 }
 
 .small-card {
-  
+  @include BoxShadowHelper(1); 
   cursor: pointer;
   float: left;
   height: auto;
@@ -72,6 +72,7 @@
   text-align: center;
   transition: none;
   width: calc(25% - 10px);
+  z-index: 5;
   &:hover {
     // transform: translate(0, 5px);
     // transition: transform 200ms ease;
@@ -112,14 +113,14 @@
 }
 
 .close-card {
-  background-image: url('http://www.gannett-cdn.com/experiments/usatoday/2014/10/ebola-questions/img/close-icon.svg');
+  background-image: url('http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/close-icon.svg');
   cursor: pointer;
-  height: 1em;
+  height: 40px;
   position: absolute;
   text-align: right;
   top: 0.5em;
   right: 0.5em;
-  width: 1em;
+  width: 40px;
   span {
     clear: none;
     position: absolute;
@@ -192,10 +193,12 @@
 .iapp-feedback-button {
   background: $purple;
   bottom: 0;
+  @include BoxShadowHelper(2);
   color: white;
   display: inline-block;
   font-family: "Futura Today Demibold", Arial,sans-serif;
   opacity: 0;
+  max-width: 40%;
   padding: .25em;
   position: absolute;
   text-align: center;
@@ -208,6 +211,7 @@
 }
 
 .iapp-feedback-icon {
+
   width: 1.5em;
 }
 
@@ -242,12 +246,12 @@
 
 .iapp-card-status {
   height: 100px;
-  right: -50px;
+  left: -50px;
   top: -50px;
   opacity: 0;
   position: absolute;
   transition: opacity 500ms ease;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   width: 100px;
   z-index: 20;
 }
@@ -272,7 +276,7 @@
   bottom: 5px;
   left: 35px;
   position: absolute;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
   width: 25px;
 }
 

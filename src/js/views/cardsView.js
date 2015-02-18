@@ -93,7 +93,7 @@ define([
 
       var _this = this;
 
-      this.$('.cover-img').unveil(200, function() {
+      this.$('.cover-img').unveil(500, function() {
         $(this).imagesLoaded(function() {
           _this.relayout();
         });
@@ -110,45 +110,21 @@ define([
     },
 
     filter: function(filterArray) {
-      console.log('filter');
-      console.log(filterArray);
-
-      
+          
         filterArray = _.map(filterArray, function(filter) {
           return '.' + filter;
         });
         var filterStr = filterArray.join('');
-       
-        console.log(filterStr);
-      this.$el.isotope({ filter: filterStr });
+        this.$el.isotope({ filter: filterStr });
+        _.delay(function() {
+          $(window).trigger('scroll');
+        }, 1000);
+
+        _.delay(function() {
+          $(window).trigger('scroll');
+        }, 2000);
     },
 
-    setFilter: function(e) {
-      var $target = $(e.target);
-      var newFilter = "." + $target.attr("data-filter");
-      if (_.contains(this.currentFilter, newFilter)) {
-        $target.removeClass("iapp-selected");
-        this.currentFilter = _.without(this.currentFilter, newFilter);
-      } else {
-        
-        $target.addClass("iapp-selected");
-
-        this.currentFilter.push(newFilter);
-        
-      }
-      var filterStr = "";
-        _.each(this.currentFilter, function(filter) {
-          filterStr += filter;
-        });
-      this.$el.isotope({ filter: filterStr });
-
-
-      if (this.currentFilter.length > 0) {
-          this.$el.find(".iapp-filter-button-clear").addClass("show");
-        } else {
-          this.$el.find(".iapp-filter-button-clear").removeClass("show");
-        }   
-    },
     relayout: _.throttle(function() {
       this.$el.isotope('layout');
     }, 500),

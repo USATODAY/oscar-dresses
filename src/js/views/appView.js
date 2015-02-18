@@ -7,6 +7,7 @@ define([
   'lib/BackboneRouter',
   'templates',
   'models/config',
+  'models/menuModel',
   'views/detailView',
   'views/cardsView',
   'views/menuView',
@@ -15,12 +16,12 @@ define([
   'dataManager',
   'jquery_ui_touch_punch'
   ], 
-  function(jQuery, imagesLoaded, Isotope, Analytics, _, Backbone, templates, config, detailView, CardsView, MenuView, DressCollection, router, dataManager) {
+  function(jQuery, imagesLoaded, Isotope, Analytics, _, Backbone, templates, config, MenuModel, detailView, CardsView, MenuView, DressCollection, router, dataManager) {
 
   return Backbone.View.extend({
     el: ".iapp-page-wrap",
     events: {
-      "click .iapp-menu-button": "onMenuClick",
+      
       // "click .iapp-filter-button": "setFilter",
       // "click .iapp-filter-button-clear": "clearFilters"
     },
@@ -61,7 +62,7 @@ define([
     },
 
     addSubViews: function() {
-      this.menuView = new MenuView();
+      this.menuView = new MenuView({model: new MenuModel()});
       this.dressCollection = new DressCollection(dataManager.data.dresses); 
       this.cardsView = new CardsView({collection: this.dressCollection});
 

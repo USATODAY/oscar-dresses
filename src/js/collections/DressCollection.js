@@ -15,6 +15,8 @@ define([
 
       initialize: function() {
         this.listenTo(Backbone, "filters:update", this.onFilterUpdate);
+        this.on('change:isLiked', this.onLikedChange);
+        this.on('change:isDisliked', this.onDislikedChange);
       },
 
       // Reference to this collection's model.
@@ -60,6 +62,30 @@ define([
             });
             return availableTags;
         },
+
+        onLikedChange: function() {
+          var liked = this.filter(function(model) {
+            return model.get('isLiked');
+          });
+          
+          this.numLiked = liked.length;
+
+          Backbone.trigger('liked:update', this.numLiked);
+        },
+
+        onDislikedChange: function() {
+          var disliked = this.filter(function(model) {
+            return model.get('isDisliked');
+          });
+          
+          this.numDisliked = disliked.length;
+
+          Backbone.trigger('disliked:update', this.numDisliked);
+        },
+
+        numLiked: 0,
+
+        numDisliked: 0
 
 
 

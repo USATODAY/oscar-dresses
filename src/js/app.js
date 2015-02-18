@@ -25,6 +25,14 @@ define([
             $('.iapp-page-wrap').addClass('iapp-touch-device');
           }
 
+          $(window).on('resize', function(e) {
+            Backbone.trigger('window:resize');
+          });
+
+          $(window).on('scroll', function() {
+            console.log('scroll event');
+          });
+
 
           //Make data request
           
