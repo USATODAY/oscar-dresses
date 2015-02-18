@@ -24,6 +24,8 @@ __p += '\n      <div class="card card-detail">\n      <div class="iapp-card-stat
 ((__t = ( person_name )) == null ? '' : __t) +
 ' </h2>\n            <p class="iapp-summary">' +
 ((__t = ( photo_caption )) == null ? '' : __t) +
+'</p>\n            <p class="iapp-card-back-photo-credit">' +
+((__t = (photo_credit)) == null ? '' : __t) +
 '</p>\n        </div>\n      \n      \n      </div>\n      \n        <div class="iapp-detail-bg"></div> \n\n';
 
 }
@@ -34,14 +36,16 @@ this["templates"]["card-front.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-card-front-image-wrap">\n    <img class="cover-img" src="' +
+__p += '<div class="iapp-card-front-image-wrap">\n    <img class="cover-img" src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/load.png" data-src=\'' +
 ((__t = (photo_url)) == null ? '' : __t) +
-'" alt="' +
+'\'alt="' +
 ((__t = ( person_name)) == null ? '' : __t) +
 '">\n    <div class="iapp-feedback-buttons">\n        <h4 class="iapp-like-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" class="iapp-feedback-icon" alt="Like"></h4>\n        <h4 class="iapp-dislike-button iapp-feedback-button"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" class="iapp-feedback-icon" alt="Dislike"></h4>     \n    </div>\n</div>\n<div class="iapp-card-status iapp-card-status-liked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" alt="" class="iapp-card-status-icon"></div>\n<div class="iapp-card-status iapp-card-status-disliked"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" alt="" class="iapp-card-status-icon"></div>\n<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">' +
 ((__t = ( person_name)) == null ? '' : __t) +
 '</h2>\n    <p class="iapp-card-info-text">' +
 ((__t = ( photo_caption)) == null ? '' : __t) +
+'</p>\n    <p class="iapp-card-info-photo-credit">' +
+((__t = ( photo_credit)) == null ? '' : __t) +
 '</p>\n    \n</div>\n';
 
 }

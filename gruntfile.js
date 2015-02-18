@@ -171,6 +171,7 @@ module.exports = function(grunt) {
             "d3": '../../bower_components/d3/d3',
             "isotope": "../../bower_components/isotope/dist/isotope.pkgd",
             "imagesloaded": "../../bower_components/imagesloaded/imagesloaded.pkgd",
+            "unveil": "lib/jquery.unveil",
             "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed',
             "brightcove": 'lib/BrightcoveExperiences'
               // "api/ads": "api/ads",
@@ -235,6 +236,7 @@ module.exports = function(grunt) {
             "d3": '../../bower_components/d3/d3',
             "isotope": "../../bower_components/isotope/dist/isotope.pkgd",
             "imagesloaded": "../../bower_components/imagesloaded/imagesloaded.pkgd",
+            "unveil": "lib/jquery.unveil",
             "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed',
             "brightcove": 'lib/BrightcoveExperiences'
               // "api/ads": "api/ads",
@@ -257,6 +259,9 @@ module.exports = function(grunt) {
             },
             "brightcove": {
               "exports": "brightcove"
+            },
+            "unveil": {
+              "deps": "jquery"
             }
           }
         }
