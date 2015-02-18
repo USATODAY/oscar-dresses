@@ -5,7 +5,7 @@ define([
     "jquery",
     "underscore",
     "backbone",
-    'models/dress',
+    'models/dressModel',
 ], function($, _, Backbone, dressModel) {
 
    
