@@ -200,6 +200,9 @@ module.exports = function(grunt) {
             },
             "brightcove": {
               "exports": "brightcove"
+            },
+            "unveil": {
+              "deps": ["jquery"]
             }
           }
         }
@@ -261,7 +264,7 @@ module.exports = function(grunt) {
               "exports": "brightcove"
             },
             "unveil": {
-              "deps": "jquery"
+              "deps": ["jquery"]
             }
           }
         }
