@@ -52,7 +52,7 @@ this["templates"]["menu.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<h3 class="iapp-menu-header">Share</h3>\n<div class="iapp-share-wrap"></div>\n<h3 class="iapp-menu-header">Filters</h3>\n<div class="iapp-filters-wrap"></div> ';
+__p += '<div class="iapp-menu-close iapp-clickable"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/close.svg" alt="close"></div>\n<h3 class="iapp-menu-header">Share</h3>\n<div class="iapp-share-wrap"></div>\n<h3 class="iapp-menu-header">Filters</h3>\n<div class="iapp-filters-wrap"></div> ';
 
 }
 return __p

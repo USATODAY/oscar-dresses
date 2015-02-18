@@ -1,6 +1,11 @@
 .iapp-menu {
   float: right;
+  position: relative;
   width: 25%;   
+}
+
+.iapp-menu-hide {
+  transform: translate(120%, 0);
 }
 
 @media (max-width: 1000px) {
@@ -8,7 +13,8 @@
     float: none;
     height: 100%;
     left: 0;
-    position: absolute;
+    overflow-y: auto;
+    position: fixed;
     top: 0;
     transform: translate(100%, 0);
     transition: transform 500ms ease;
@@ -20,4 +26,19 @@
         z-index: 20;
     } 
   }
+}
+
+.iapp-menu-header {
+  color: $purple;
+  font-family: "Futura Today Light", Arial, sans-serif;
+  font-size: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.iapp-menu-close {
+    position: absolute;
+    right: 1em;
+    top: 0;
+    width: 60px;
 }

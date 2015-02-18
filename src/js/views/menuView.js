@@ -16,8 +16,12 @@ define([
         return Backbone.View.extend({
             el: '.iapp-menu',
             template: templates['menu.html'],
+            events: {
+                'click .iapp-menu-close': 'onCloseClick'
+            },
             initialize: function() {
                 this.listenTo(Backbone, 'menu:show', this.onMenuShow);
+                this.listenTo(Backbone, 'menu:hide', this.onMenuHide);
                 this.render();
             },
             render: function() {
@@ -38,6 +42,9 @@ define([
             },
             onMenuHide: function() {
                 this.$el.removeClass('iapp-menu-show').addClass('iapp-menu-hide');
+            },
+            onCloseClick: function() {
+                Backbone.trigger('menu:hide');
             }
 
         });
