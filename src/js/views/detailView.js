@@ -26,6 +26,8 @@ define([
 
           // router.navigate("movie/" + this.model.get("rowNumber"));
           this.listenTo(Backbone, "highlight:remove", this.removeCard);
+          this.listenTo(this.model, 'change:isLiked', this.onLikeChange);
+          this.listenTo(this.model, 'change:isDisliked', this.onDislikeChange);
           // this.listenTo(this.model, 'change:highlight', this.removeCard);
         },
         render: function() {
@@ -60,8 +62,7 @@ define([
             
             this.$el.removeClass("modal-show");
             var _this = this;
-            console.log('detail View remove card');
-            console.log(_this);
+            
             _.delay(function() {
               _this.remove();
             }, 500);
@@ -82,7 +83,6 @@ define([
               this.model.unlike();
             }
             
-            e.stopImmediatePropagation();
         },
 
         onDislikeClick: function() {
@@ -93,7 +93,21 @@ define([
             } else {
               this.model.undislike();
             }
-            e.stopImmediatePropagation();
+        },
+
+        onLikeChange: function() {
+          if (this.model.get('isLiked')) {
+            this.$el.addClass('iapp-liked');
+          } else {
+            this.$el.removeClass('iapp-liked');
+          }
+        },
+        onDislikeChange: function() {
+          if (this.model.get('isDisliked')) {
+            this.$el.addClass('iapp-disliked');
+          } else {
+            this.$el.removeClass('iapp-disliked');
+          }
         }
 
     });
