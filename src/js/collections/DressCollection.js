@@ -21,6 +21,7 @@ define([
         this.listenTo(Backbone, 'route:like', this.onRouteLike);
         this.listenTo(Backbone, 'route:dislike', this.onRouteDislike);
         this.listenTo(Backbone, 'route:both', this.onRouteBoth);
+        this.listenTo(Backbone, 'app:reset', this.onResetApp);
       },
 
       // Reference to this collection's model.
@@ -68,6 +69,7 @@ define([
         },
 
         onLikedChange: function() {
+          
           var liked = this.filter(function(model) {
             return model.get('isLiked');
           });
@@ -136,6 +138,13 @@ define([
 
           _.each(dislikefilteredModels, function(model) {
             model.dislike();
+          });
+        },
+
+        onResetApp: function() {
+          this.each(function(dressModel) {
+            dressModel.unlike();
+            dressModel.undislike();
           });
         }
 

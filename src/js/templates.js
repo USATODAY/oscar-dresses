@@ -6,7 +6,7 @@ this["templates"]["app-view.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-project-info-wrap">\n    <h1 class="iapp-page-header">Headline</h1>\n    <p class="iapp-page-chatter">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi molestias placeat, aliquid eos ea, eaque odio a? Tenetur obcaecati iusto similique ullam quasi officiis mollitia ut dolores, architecto porro saepe.</p>\n</div>\n<div class="iapp-menu"></div>\n<div id="card-wrap" class="iapp-card-wrap"></div>\n\n';
+__p += '<div class="iapp-project-info-wrap">\n    <h1 class="iapp-page-header">Headline</h1>\n    <p class="iapp-page-chatter">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi molestias placeat, aliquid eos ea, eaque odio a? Tenetur obcaecati iusto similique ullam quasi officiis mollitia ut dolores, architecto porro saepe.</p>\n\n    <p class="iapp-share-chatter">Share info here.</p>\n</div>\n<div class="iapp-menu"></div>\n<div id="card-wrap" class="iapp-card-wrap"></div>\n\n';
 
 }
 return __p
@@ -56,7 +56,7 @@ this["templates"]["menu.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-menu-panel">\n    \n    <h3 class="iapp-menu-header">Share</h3>\n    <div class="iapp-share-wrap"></div>\n    <h3 class="iapp-menu-header">Filters</h3>\n    <div class="iapp-filters-wrap"></div> \n</div>\n\n<div class="iapp-menu-control-area">\n    <div class="iapp-menu-button iapp-clickable"><div class="iapp-button-text">Menu</div></div>\n    <div class="iapp-top-button iapp-clickable"><div class="iapp-button-text">Top</div></div>\n    <div class="iapp-menu-close iapp-clickable"><div class="iapp-button-text">Close</div></div>\n    <div class="iapp-menu-scoreboard">\n        <div class="iapp-menu-scoreboard-likes">\n            <span class="iapp-menu-scoreboard-icon"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" alt="like"></span>\n            <span class="iapp-menu-scoreboard-score">' +
+__p += '<div class="iapp-menu-panel">\n    \n    <h3 class="iapp-menu-header">Share</h3>\n    <div class="iapp-share-wrap"></div>\n    <h3 class="iapp-menu-header iapp-menu-header-filters">Filters</h3>\n    <div class="iapp-filters-wrap"></div> \n</div>\n\n<div class="iapp-menu-control-area">\n    <div class="iapp-menu-button iapp-clickable"><div class="iapp-button-text">Menu</div></div>\n    <div class="iapp-top-button iapp-clickable"><div class="iapp-button-text">Top</div></div>\n    <div class="iapp-menu-close iapp-clickable"><div class="iapp-button-text">Close</div></div>\n    <div class="iapp-reset-button iapp-clickable"><div class="iapp-button-text">Reset</div></div>\n    <div class="iapp-menu-scoreboard">\n        <div class="iapp-menu-scoreboard-likes">\n            <span class="iapp-menu-scoreboard-icon"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" alt="like"></span>\n            <span class="iapp-menu-scoreboard-score">' +
 ((__t = (likesRemaining)) == null ? '' : __t) +
 '</span>\n            <div class="iapp-menu-scoreboard-label">Remaining</div>\n        </div>\n        <div class="iapp-menu-scoreboard-dislikes">\n            \n            <span class="iapp-menu-scoreboard-icon"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" alt="like"></span> \n            <span class="iapp-menu-scoreboard-score">' +
 ((__t = (dislikesRemaining)) == null ? '' : __t) +

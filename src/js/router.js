@@ -20,7 +20,6 @@
 
 
       like: function(likestring) {
-        console.log('like route');
         Backbone.trigger('route:share');
         Backbone.trigger('route:like', likestring);
       },

@@ -19,7 +19,8 @@ define([
             events: {
                 'click .iapp-menu-close': 'onCloseClick',
                 "click .iapp-menu-button": "onMenuClick",
-                'click .iapp-top-button': 'onTopClick'
+                'click .iapp-top-button': 'onTopClick',
+                'click .iapp-reset-button': 'onResetClick'
             },
             initialize: function() {
                 this.listenTo(this.model, 'change:isMenuOpen', this.updateState);
@@ -53,7 +54,6 @@ define([
             },
             onMenuClick: function() {
                 this.model.set({isMenuOpen: true});
-                console.log(this.model.mobileThreshhold);
                 if (window.innerWidth < this.model.mobileThreshhold) {
                      // $('body,html').addClass('iapp-no-scroll');
                 }
@@ -91,6 +91,10 @@ define([
 
                 return docViewTop > elemBottom;
 
+            },
+            onResetClick: function() {
+                Backbone.trigger('app:reset');
+                router.navigate('_');
             }
 
         });

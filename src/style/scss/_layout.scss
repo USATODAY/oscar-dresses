@@ -96,3 +96,25 @@
   float: none;
   width: 100%;
 }
+
+
+.iapp-share-route {
+  .iapp-share-chatter {
+    display: block;
+  }
+
+  .iapp-filters-wrap, .iapp-menu-header-filters {
+    display: none;
+  }
+
+  .iapp-reset-button {
+    display: block;
+  }
+
+  .iapp-menu-close, .iapp-top-button {
+    display: none;
+  }
+}
+.iapp-share-chatter {
+  display: none;
+}

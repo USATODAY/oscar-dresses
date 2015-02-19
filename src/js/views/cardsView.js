@@ -29,6 +29,7 @@ define([
       this.listenTo(Backbone, 'menu:show', this.onMenuShow);
       this.listenTo(Backbone, 'menu:hide', this.onMenuHide);
       this.listenTo(Backbone, 'route:share', this.onRouteShare);
+      this.listenTo(Backbone, 'app:reset', this.onAppReset);
       this.render();
 
     },
@@ -137,6 +138,9 @@ define([
 
     relayout: _.throttle(function() {
       this.$el.isotope('layout');
+      _.delay(function() {
+          $(window).trigger('scroll');
+        }, 1000);
     }, 500),
 
     clearFilters: function(e) {
@@ -162,6 +166,11 @@ define([
         _this.$el.isotope({filter: '.iapp-liked, .iapp-disliked'});
         _this.$el.isotope('updateSortData').isotope({sortBy: 'liked'});
       });
+    },
+
+    onAppReset: function() {
+      this.clearFilters();
+      this.relayout();
     }
   });
 

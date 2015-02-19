@@ -30,7 +30,6 @@ define(
 
         },
         onModelChangeAvailability: function(e) {
-            // console.log("tag viwe on model change");
             if (this.model.get('isAvailable')) {
                this.$el.removeClass('unavailable'); 
             } else {

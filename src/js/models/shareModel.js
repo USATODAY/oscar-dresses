@@ -10,7 +10,7 @@ define(
     return Backbone.Model.extend( {
         defaults: {
             'default_share_language': 'share language',
-            'stillimage': 'image file',
+            'stillimage': 'http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/fb-post.jpg',
             'likePath': '',
             'dislikePath': ''
 

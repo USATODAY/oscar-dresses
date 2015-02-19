@@ -54,7 +54,7 @@ define(
             });
         },
         onLikedUpdate: function(likeArray) {
-            var numLiked = length;
+            var numLiked = likeArray.length;
             var likedTag = this.find(function(tag) {
                return tag.get('tagName') == 'iapp-liked';
             });
