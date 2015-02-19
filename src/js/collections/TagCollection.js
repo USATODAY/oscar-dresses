@@ -53,8 +53,8 @@ define(
                 tag.set({'isActive': false});
             });
         },
-        onLikedUpdate: function(numLiked) {
-
+        onLikedUpdate: function(likeArray) {
+            var numLiked = length;
             var likedTag = this.find(function(tag) {
                return tag.get('tagName') == 'iapp-liked';
             });
@@ -64,7 +64,8 @@ define(
                 likedTag.set({'isAvailable': false});
             }
         },
-        onDislikedUpdate: function(numDisliked) {
+        onDislikedUpdate: function(dislikeArray) {
+            var numDisliked = dislikeArray.length;
             var dislikedTag = this.find(function(tag) {
                return tag.get('tagName') == 'iapp-disliked';
             });

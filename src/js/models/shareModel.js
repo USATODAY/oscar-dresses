@@ -9,39 +9,88 @@ define(
 
     return Backbone.Model.extend( {
         defaults: {
-            'share_language': '',
-            'stillimage': ''
+            'default_share_language': 'share language',
+            'stillimage': 'image file',
+            'likePath': '',
+            'dislikePath': ''
 
             
         },
 
         initialize: function() {
+            var baseURL = window.location.origin + window.location.pathname;
            this.set({
-                'fbShare': this.createFbShareURL(),
-                'twitterShare': this.createTwitterShareURL(),
-                'encodedShare': encodeURIComponent(this.get('sharelanguage')),
-                'fb_id': config.fb_app_id,
+                'baseURL': baseURL,
+                'fbShare': this.createFbShareURL(baseURL),
+                'twitterShare': this.createTwitterShareURL(baseURL),
+                'share_language': this.get('default_share_language'),  
+                'encodedShare': encodeURIComponent(this.get('default_share_language')),
+                'fb_id': config.facebook.app_id,
                 'fb_redirect': 'http://' + window.location.hostname + '/pages/interactives/fb-share/',
-                'email_link': this.createEmailLink()
+                'email_link': this.createEmailLink(baseURL)
+                
             }); 
+           this.listenTo(Backbone, 'liked:update', this.onLiked);
+           this.listenTo(Backbone, 'disliked:update', this.onDisliked);
+           
         },
 
-        createFbShareURL: function() {
-            // var videoID = this.get('video_clip');
-            var baseURL = window.location.origin + window.location.pathname;
-            // return encodeURI(baseURL + "%23video/" + videoID); 
-            return encodeURI(baseURL); 
+        createFbShareURL: function(url) {   
+            return encodeURI(url); 
         },
 
-        createTwitterShareURL: function() {
-            // var videoID = this.get('video_clip');
-            var baseURL = window.location.origin + window.location.pathname;
-            // return encodeURIComponent(baseURL + "#video/" + videoID); 
-            return encodeURIComponent(baseURL); 
+        createTwitterShareURL: function(url) {
+
+            return encodeURIComponent(url); 
         },
 
-        createEmailLink: function() {
-            return "mailto:?body=" + encodeURIComponent(this.get('sharelanguage')) +  "%0d%0d" + this.createTwitterShareURL() + "&subject=";
+        createEmailLink: function(url) {
+            return "mailto:?body=" + encodeURIComponent(this.get('sharelanguage')) +  "%0d%0d" + this.createTwitterShareURL(url) + "&subject=";
+        },
+
+        updateLanguage: function(newShareStr) {
+
+        },
+
+        updateUrls: function() {
+            var shareUrl;
+            var baseURL = this.get('baseURL');
+            if (this.get('dislikePath') !== '' && this.get('likePath') !== '') {
+                shareUrl = baseURL + '#likes/' + this.get('likePath') + '/dislikes/' + this.get('dislikePath');
+            } else if (this.get('dislikePath') !== '') {
+                shareUrl = baseURL + '#dislikes/' + this.get('dislikePath');
+            } else if (this.get('likePath') !== '') {
+                shareUrl = baseURL + '#likes/' + this.get('likePath');
+            } else {
+                shareUrl = baseURL;
+            }
+
+            this.set({
+                'fbShare': this.createFbShareURL(shareUrl),
+                'twitterShare': this.createTwitterShareURL(shareUrl),
+                'email_link': this.createEmailLink(shareUrl)
+            });
+
+        },
+
+        onDisliked: function(dislikeArray) {
+            
+            this.set({'dislikePath': this.createPath(dislikeArray)});
+            this.updateUrls();
+        },
+
+        onLiked: function(likeArray) {
+            this.set({'likePath': this.createPath(likeArray)});
+            this.updateUrls();
+        },
+
+        createPath: function(array) {
+            var uids = [];
+            _.each(array, function(dressModel) {
+                var uid = dressModel.get('uid');
+                uids.push(uid);
+            });
+            return uids.join('-');
         }
     });
 

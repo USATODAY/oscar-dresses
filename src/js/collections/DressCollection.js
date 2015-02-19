@@ -70,7 +70,7 @@ define([
           
           this.numLiked = liked.length;
 
-          Backbone.trigger('liked:update', this.numLiked);
+          Backbone.trigger('liked:update', liked);
         },
 
         onDislikedChange: function() {
@@ -80,7 +80,7 @@ define([
           
           this.numDisliked = disliked.length;
 
-          Backbone.trigger('disliked:update', this.numDisliked);
+          Backbone.trigger('disliked:update', disliked);
         },
 
         numLiked: 0,
