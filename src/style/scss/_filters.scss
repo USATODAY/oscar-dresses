@@ -26,8 +26,8 @@
 .iapp-filter-button-clear {
   @extend .iapp-filter-button;
   background: none;
-  border: solid 1px $dark-red;
-  color: $dark-red;
+  border: solid 1px $purple;
+  color: $purple;
   display: none;
   &.show {
     display: inline-block;

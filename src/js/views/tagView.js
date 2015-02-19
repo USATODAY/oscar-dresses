@@ -17,6 +17,9 @@ define(
         className: 'iapp-filter-button',
         // template: templates['tag.html'],
         render: function(data) {
+            if (this.model.get('isAvailable') === false) {
+                this.$el.addClass('unavailable');
+            }
             this.$el.html(this.model.get('tagPretty'));    
             return this;
         },

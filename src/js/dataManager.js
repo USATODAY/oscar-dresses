@@ -46,7 +46,16 @@ define(
         },
         organizeTags: function() {
             var _this = this;
-            var tags = [];
+            var tags = [
+                {
+                    tagName: 'iapp-liked',
+                    tagPretty: 'liked'
+                },
+                {
+                    tagName: 'iapp-disliked',
+                    tagPretty: 'disliked'
+                },
+            ];
             _.each(_this.data.dresses, function(dataObj) {
                     
                 //split tags string into array
