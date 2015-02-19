@@ -36,6 +36,7 @@ define(
         },
 
         createFbShareURL: function(url) {   
+            url = url.replace('#', '%23');
             return encodeURI(url); 
         },
 
@@ -53,6 +54,8 @@ define(
                 'sharelanguage': newShareStr,
                 'encodedShare': encodeURIComponent(newShareStr)
             });
+
+
         },
 
         updateUrls: function() {

@@ -74,7 +74,7 @@ __p += '<div class="iapp-share-buttons">\n    <a href="https://twitter.com/inten
 ((__t = (twitterShare)) == null ? '' : __t) +
 '&text=' +
 ((__t = (encodedShare)) == null ? '' : __t) +
-'" class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/twitter.svg" alt="Twitter share"></a>\n    <a href=\'https://www.facebook.com/dialog/feed?display=popup&app_id=' +
+'" class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/twitter.svg" alt="Twitter share"></a>\n    <a href="https://www.facebook.com/dialog/feed?display=popup&app_id=' +
 ((__t = (fb_id)) == null ? '' : __t) +
 '&link=' +
 ((__t = (fbShare)) == null ? '' : __t) +
@@ -84,7 +84,7 @@ __p += '<div class="iapp-share-buttons">\n    <a href="https://twitter.com/inten
 ((__t = (encodedShare)) == null ? '' : __t) +
 '&redirect_uri=' +
 ((__t = (fb_redirect)) == null ? '' : __t) +
-'\' class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/facebook.svg" alt="Facebook share"></a>\n    <a href="' +
+'" class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/facebook.svg" alt="Facebook share"></a>\n    <a href="' +
 ((__t = (email_link)) == null ? '' : __t) +
 '" class="iapp-share-button iapp-share-email"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/email.svg" alt="Email share"></a>\n</div>';
 
