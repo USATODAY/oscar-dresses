@@ -53,14 +53,13 @@ define([
 
       onLikeClick: function(e) {
 
-         
+        console.log('like click'); 
         this.model.undislike();
         if (!this.model.get('isLiked')) {
-          this.$el.addClass('iapp-liked');
-
+          
           this.model.like();
         } else {
-          this.$el.removeClass('iapp-liked');
+        
           this.model.unlike();
         }
         
@@ -73,10 +72,10 @@ define([
         this.model.unlike();
 
         if (!this.model.get('isDisliked')) {
-          this.$el.addClass('iapp-disliked');
+          
           this.model.dislike();
         } else {
-          this.$el.removeClass('iapp-disliked');
+          
           this.model.undislike();
         }
         e.stopImmediatePropagation();
@@ -85,7 +84,7 @@ define([
 
       onLikedChange: function() {
         
-        
+          
           if (this.model.get('isLiked')) {
             this.$el.addClass('iapp-liked');
           } else {
@@ -97,6 +96,7 @@ define([
           } else {
             this.$el.removeClass('iapp-disliked');
           }
+          console.log('like change');
       }
     });
 
