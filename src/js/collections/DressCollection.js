@@ -14,9 +14,13 @@ define([
     return Backbone.Collection.extend({
 
       initialize: function() {
+
         this.listenTo(Backbone, "filters:update", this.onFilterUpdate);
         this.on('change:isLiked', this.onLikedChange);
         this.on('change:isDisliked', this.onDislikedChange);
+        this.listenTo(Backbone, 'route:like', this.onRouteLike);
+        this.listenTo(Backbone, 'route:dislike', this.onRouteDislike);
+        this.listenTo(Backbone, 'route:both', this.onRouteBoth);
       },
 
       // Reference to this collection's model.
@@ -85,7 +89,54 @@ define([
 
         numLiked: 0,
 
-        numDisliked: 0
+        numDisliked: 0,
+
+        onRouteLike: function(likestring) {
+          
+          var uidArray = likestring.split('-');
+          var filteredModels = this.filter(function(model) {
+            return _.contains(uidArray, model.get('uid'));
+          });
+
+          _.each(filteredModels, function(model) {
+            model.like();
+          });
+        },
+
+        onRouteDislike: function(dislikestring) {
+          
+          var uidArray = dislikestring.split('-');
+          var filteredModels = this.filter(function(model) {
+            return _.contains(uidArray, model.get('uid'));
+          });
+
+          _.each(filteredModels, function(model) {
+            model.dislike();
+          });
+        },
+
+        onRouteBoth: function(likestring, dislikestring) {
+          console.log('both');
+
+          
+          var likeuidArray = likestring.split('-');
+          var likefilteredModels = this.filter(function(model) {
+            return _.contains(likeuidArray, model.get('uid'));
+          });
+
+          _.each(likefilteredModels, function(model) {
+            model.like();
+          });
+
+           var dislikeuidArray = dislikestring.split('-');
+          var dislikefilteredModels = this.filter(function(model) {
+            return _.contains(dislikeuidArray, model.get('uid'));
+          });
+
+          _.each(dislikefilteredModels, function(model) {
+            model.dislike();
+          });
+        }
 
 
 

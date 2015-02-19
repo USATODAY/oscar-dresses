@@ -65,7 +65,7 @@ define([
       this.menuView = new MenuView({model: new MenuModel()});
       this.dressCollection = new DressCollection(dataManager.data.dresses); 
       this.cardsView = new CardsView({collection: this.dressCollection});
-
+      Backbone.history.start();
     },
 
     onDataReady: function() {

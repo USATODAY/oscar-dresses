@@ -8,8 +8,9 @@
 
       routes: {
         "": "home",
-        "movie": "home",
-        "movie/:id":                 "highlight",    // #/1
+        'likes/:likestring': 'like',
+        'dislikes/:dislikestring': 'dislike',
+        'likes/:likestring/dislikes/:dislikestring': 'both' 
         
       },
 
@@ -17,8 +18,21 @@
          this.trigger("homeRoute");
       },
 
-      highlight: function(id) {
-        this.trigger("highlight", id);
+
+      like: function(likestring) {
+        console.log('like route');
+        Backbone.trigger('route:share');
+        Backbone.trigger('route:like', likestring);
+      },
+
+      dislike: function(dislikestring) {
+        Backbone.trigger('route:share');
+        Backbone.trigger('route:dislike', dislikestring);
+      },
+
+      both: function(likestring, dislikestring) {
+        Backbone.trigger('route:share');
+        Backbone.trigger('route:both', likestring, dislikestring);
       }
 
     });
