@@ -75,21 +75,25 @@ define([
         },
 
         onLikeClick: function() {
-          this.model.set({'isLiked': !this.model.get('isLiked'), 'isDisliked': false});
-            if (this.model.get('isLiked')) {
-              this.$el.addClass('iapp-liked').removeClass('iapp-disliked');
+          this.model.undislike();
+            if (!this.model.get('isLiked')) {
+              this.model.like();
             } else {
-              this.$el.removeClass('iapp-liked');
+              this.model.unlike();
             }
+            
+            e.stopImmediatePropagation();
         },
 
         onDislikeClick: function() {
-          this.model.set({'isDisliked': !this.model.get('isDisliked'), 'isLiked': false});
-          if (this.model.get('isDisliked')) {
-            this.$el.addClass('iapp-disliked').removeClass('iapp-liked');
-          } else {
-            this.$el.removeClass('iapp-disliked');
-          }  
+          this.model.unlike();
+
+            if (!this.model.get('isDisliked')) {
+              this.model.dislike();
+            } else {
+              this.model.undislike();
+            }
+            e.stopImmediatePropagation();
         }
 
     });
