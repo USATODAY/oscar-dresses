@@ -18,7 +18,8 @@ define([
             template: templates['menu.html'],
             events: {
                 'click .iapp-menu-close': 'onCloseClick',
-                "click .iapp-menu-button": "onMenuClick"
+                "click .iapp-menu-button": "onMenuClick",
+                'click .iapp-top-button': 'onTopClick'
             },
             initialize: function() {
                 this.listenTo(this.model, 'change:isMenuOpen', this.updateState);
@@ -48,9 +49,14 @@ define([
             },
             onCloseClick: function() {
                 this.model.set({isMenuOpen: false});
+                // $('body,html').removeClass('iapp-no-scroll');
             },
             onMenuClick: function() {
                 this.model.set({isMenuOpen: true});
+                console.log(this.model.mobileThreshhold);
+                if (window.innerWidth < this.model.mobileThreshhold) {
+                     // $('body,html').addClass('iapp-no-scroll');
+                }
             },
             onLikeChange: function() {
                 var numLikesRemaining = this.model.get('likesRemaining');
@@ -67,6 +73,9 @@ define([
                     this.$el.removeClass('iapp-menu-scrolled');
                }
             }, 500),
+            onTopClick: function() {
+                $('body,html').animate({scrollTop: 0}, 500);
+            },
 
             checkIsVisible: function() {
 
