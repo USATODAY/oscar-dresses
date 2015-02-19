@@ -254,6 +254,9 @@
   transform: rotate(-45deg);
   width: 100px;
   z-index: 20;
+  @media(max-width: $mid-break) {
+    transition: none;
+  }
 }
 
 .iapp-card-status-liked {

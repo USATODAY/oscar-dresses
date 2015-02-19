@@ -15,13 +15,14 @@
 .iapp-menu-control-area {
 
   bottom: 0;
-  height: 65px;
+  height: 80px;
   position: fixed;
   right: 0;
   width: 24%;
   z-index: 8;
 
   @media (max-width: $mid-break) {
+    height: 75px;
     width: 100%;
   }
 }
@@ -153,8 +154,8 @@
 .iapp-menu-scoreboard {
   background: rgba(0, 0, 0, 0.8);
   @include BoxShadowHelper(2);
-  height: 6em;
-  padding: 1% 3% 0 3%;
+  height: 8em;
+  padding: 0.5em 1em;
   width: 100%;
 }
 
@@ -169,11 +170,14 @@
   .iapp-menu-scoreboard-icon, .iapp-menu-scoreboard-score {
     float: left;
   }
+  .iapp-menu-scoreboard-score {
+    margin-left: 10px;
+  }
 
   .iapp-menu-scoreboard-label {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 0.5em;
+    left: 1em;
   }
 }
 
@@ -185,10 +189,14 @@
     float: right;
   }
 
+  .iapp-menu-scoreboard-score {
+    margin-right: 10px;
+  }
+
   .iapp-menu-scoreboard-label {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 0.5em;
+    right: 1em;
   }
 }
 
@@ -207,6 +215,7 @@
 
 .iapp-menu-scoreboard-label {
   color: white;
+  text-transform: uppercase;
 }
 
 .iapp-reset-button {
