@@ -30,7 +30,7 @@ define([
           });
 
           $(window).on('scroll', function() {
-            console.log('scroll event');
+            Backbone.trigger('window:scroll');
           });
 
 
