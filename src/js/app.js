@@ -39,7 +39,7 @@ define([
           dataManager.getData();
 
           appview = new appView();
-          Backbone.history.start();
+          
         }
       );   
     }

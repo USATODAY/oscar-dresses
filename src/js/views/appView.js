@@ -28,30 +28,12 @@ define([
 
     initialize: function() {
 
-      // this.listenTo(router, "highlight", this.onHighlightRoute);
-      // this.listenTo(router, "homeRoute", this.onHomeRoute);
+      this.listenTo(Backbone, 'route:share', this.onRouteShare);
       this.listenTo(Backbone, 'data:ready', this.onDataReady);
+      this.listenTo(Backbone, 'app:reset', this.onAppReset);
       this.render();
       
     },
-
-
-    onHighlightRoute: function(id) {
-      if (this.collection.toJSON().length === 0) {
-       this.collection.once("reset", function() {
-          var detailModel = _.find(this.collection.models, function(model) {
-            return model.get("rowNumber") == id;
-          });
-          detailModel.set({"highlight": true});
-        }, this);
-      } else {
-        var detailModel = _.find(this.collection.models, function(model) {
-          return model.get("rowNumber") == id;
-        });
-        detailModel.set({"highlight": true});
-      }
-    },
-
     
 
     template: templates["app-view.html"], 
@@ -65,7 +47,7 @@ define([
       this.menuView = new MenuView({model: new MenuModel()});
       this.dressCollection = new DressCollection(dataManager.data.dresses); 
       this.cardsView = new CardsView({collection: this.dressCollection});
-
+      Backbone.history.start();
     },
 
     onDataReady: function() {
@@ -74,6 +56,14 @@ define([
 
     onMenuClick: function() {
       Backbone.trigger('menu:show');
+    },
+
+    onRouteShare: function() {
+      this.$el.addClass('iapp-share-route');
+    },
+
+    onAppReset: function() {
+      this.$el.removeClass('iapp-share-route');
     }
     
   });

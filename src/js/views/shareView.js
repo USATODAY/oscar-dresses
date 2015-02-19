@@ -15,9 +15,9 @@ define([
             },
             initialize: function() {
                 this.render();
+                this.listenTo(this.model, 'change', this.render);
             },
             render: function() {
-
                 this.$el.html(this.template(this.model.toJSON()));
                 return this;
             },

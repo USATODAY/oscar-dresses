@@ -40,11 +40,13 @@ define(
             }
         }, 500),
 
-        onDislikeUpdate: function(numDislikes) {
+        onDislikeUpdate: function(dislikeArray) {
+            var numDislikes = dislikeArray.length;
             this.set({'dislikesRemaining': 10 - numDislikes});
         },
 
-        onLikeUpdate: function(numLikes) {
+        onLikeUpdate: function(likeArray) {
+            var numLikes = likeArray.length;
             this.set({'likesRemaining': 10 - numLikes});
         },
         

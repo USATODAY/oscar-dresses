@@ -28,6 +28,8 @@ define([
       this.listenTo(Backbone, "filters:update", this.filter);
       this.listenTo(Backbone, 'menu:show', this.onMenuShow);
       this.listenTo(Backbone, 'menu:hide', this.onMenuHide);
+      this.listenTo(Backbone, 'route:share', this.onRouteShare);
+      this.listenTo(Backbone, 'app:reset', this.onAppReset);
       this.render();
 
     },
@@ -77,12 +79,22 @@ define([
       
       var $el = this.$el;
       var _this = this;
-      
-      $el.imagesLoaded( function() {
-        $el.isotope( {
+      $el.isotope( {
           itemSelector: '.card',
           transitionDuration: (!config.isMobile) ? '0.4s' : 0,
+          getSortData: {
+            liked: function(itemElem) {
+              if (jQuery(itemElem).hasClass('iapp-liked')) {
+                return 'liked';
+              } else {
+                return 'not-liked';
+              }
+            }
+          }
         });
+      
+      $el.imagesLoaded( function() {
+        _this.relayout();
         _this.unveilImages();
     
       });
@@ -126,6 +138,9 @@ define([
 
     relayout: _.throttle(function() {
       this.$el.isotope('layout');
+      _.delay(function() {
+          $(window).trigger('scroll');
+        }, 1000);
     }, 500),
 
     clearFilters: function(e) {
@@ -142,6 +157,19 @@ define([
 
     onMenuHide: function() {
       this.$el.addClass('iapp-card-wrap-full-width');
+      this.relayout();
+    },
+
+    onRouteShare: function() {
+      var _this = this;
+      _.defer(function() {
+        _this.$el.isotope({filter: '.iapp-liked, .iapp-disliked'});
+        _this.$el.isotope('updateSortData').isotope({sortBy: 'liked'});
+      });
+    },
+
+    onAppReset: function() {
+      this.clearFilters();
       this.relayout();
     }
   });
