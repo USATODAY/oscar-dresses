@@ -53,16 +53,28 @@ define([
 
       onLikeClick: function(e) {
 
-        e.stopImmediatePropagation();
-        this.model.set({'isLiked': !this.model.get('isLiked'), 'isDisliked': false});
+         
+        this.model.undislike();
+        if (!this.model.get('isLiked')) {
+          this.model.like();
+        } else {
+          this.model.unlike();
+        }
         
+        e.stopImmediatePropagation();
         
       },
 
       onDislikeClick: function(e) {
-        e.stopImmediatePropagation();
-        this.model.set({'isDisliked': !this.model.get('isDisliked'), 'isLiked': false});
         
+        this.model.unlike();
+
+        if (!this.model.get('isDisliked')) {
+          this.model.dislike();
+        } else {
+          this.model.undislike();
+        }
+        e.stopImmediatePropagation();
         
       },
 
