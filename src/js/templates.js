@@ -6,7 +6,7 @@ this["templates"]["app-view.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-project-info-wrap">\n    <h1 class="iapp-page-header">Dress like a star: Build your Ultimate Oscar closet</h1>\n    <p class="iapp-page-chatter">Love it or leave it? That’s for you to decide as you “shop” 100 memorable Oscar gowns and create your look book of favs…and, ahem, fails. Sort your closet using the tags at the right and say yay or nay to each look using the icons on the photos.</p>\n\n    <p class="iapp-share-chatter">Your friend\'s choices are below, press reset to select your favorites.</p>\n</div>\n<div class="iapp-menu"></div>\n<div id="card-wrap" class="iapp-card-wrap"></div>\n\n';
+__p += '<div class="iapp-project-info-wrap">\n    <h1 class="iapp-page-header">Dress like a star: Build your Ultimate Oscar closet</h1>\n    <p class="iapp-page-chatter">Love it or leave it? That’s for you to decide as you “shop” 100 memorable Oscar gowns and create your look book of favs…and, ahem, fails. Sort your closet using the tags at the right and say yay or nay to each look using the icons on the photos.</p>\n\n    <p class="iapp-share-chatter">Your friend\'s choices are below. Press reset to select your favorites.</p>\n</div>\n<div class="iapp-menu"></div>\n<div id="card-wrap" class="iapp-card-wrap"></div>\n\n';
 
 }
 return __p
