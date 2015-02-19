@@ -6,7 +6,6 @@ define([
   'underscore',
   'lib/BackboneRouter',
   'templates',
-  'models/tags',
   'models/config',
   'views/cardView',
   'views/detailView',
@@ -14,7 +13,7 @@ define([
   'unveil',
   'jquery_ui_touch_punch'
   ], 
-  function(jQuery, imagesLoaded, Isotope, Analytics, _, Backbone, templates, tags, config, cardView, detailView, router) {
+  function(jQuery, imagesLoaded, Isotope, Analytics, _, Backbone, templates, config, cardView, detailView, router) {
 
   return Backbone.View.extend({
     el: "#card-wrap",
