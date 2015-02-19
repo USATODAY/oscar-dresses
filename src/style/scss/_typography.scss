@@ -16,6 +16,9 @@ article .iapp-page-header {
   padding: 0;
   text-align: left;
   text-transform: uppercase;
+  @media (max-width: $mid-break) {
+    font-size: 2em;
+  }
 }
 
 .iapp-page-chatter {
@@ -39,6 +42,7 @@ article .iapp-page-header {
   // margin-bottom: 0.5em;
   // text-decoration: underline;
   text-transform: uppercase;
+
 
 }
 
