@@ -352,17 +352,17 @@ module.exports = function(grunt) {
       },
       upload1: {
         files: {
-          '/17200/experiments/usatoday/2015/02/oscar-dresses/': 'js/main.js'
+          '/17200/experiments/usatoday/2015/02/red-carpet/': 'js/main.js'
         }
       },
       upload2: {
         files: {
-          '/17200/experiments/usatoday/2015/02/oscar-dresses/': 'style/project.css'
+          '/17200/experiments/usatoday/2015/02/red-carpet/': 'style/project.css'
         }
       },
       upload3: {
         files: {
-          '/17200/experiments/usatoday/2015/02/oscar-dresses/': 'data/*.json'
+          '/17200/experiments/usatoday/2015/02/red-carpet/': 'data/*.json'
         }
       }
     },
