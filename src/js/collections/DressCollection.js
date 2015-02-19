@@ -93,6 +93,7 @@ define([
 
         onRouteLike: function(likestring) {
           
+          
           var uidArray = likestring.split('-');
           var filteredModels = this.filter(function(model) {
             return _.contains(uidArray, model.get('uid'));
@@ -105,6 +106,7 @@ define([
 
         onRouteDislike: function(dislikestring) {
           
+          
           var uidArray = dislikestring.split('-');
           var filteredModels = this.filter(function(model) {
             return _.contains(uidArray, model.get('uid'));
@@ -116,8 +118,7 @@ define([
         },
 
         onRouteBoth: function(likestring, dislikestring) {
-          console.log('both');
-
+         
           
           var likeuidArray = likestring.split('-');
           var likefilteredModels = this.filter(function(model) {
