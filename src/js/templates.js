@@ -6,7 +6,7 @@ this["templates"]["app-view.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-project-info-wrap">\n    <h1 class="iapp-page-header">Dress like a star: Build your Ultimate Oscar closet</h1>\n    <p class="iapp-page-chatter">Love it or leave it? That’s for you to decide as you “shop” 100 memorable Oscar gowns and create your look book of favs…and, ahem, fails. Sort your closet using the tags at the right and say yay or nay to each look using the icons on the photos.</p>\n\n    <p class="iapp-share-chatter">Your friend\'s choices are below. Press reset to select your favorites.</p>\n    <div class="iapp-share-wrap"></div>\n</div>\n<div class="iapp-menu"></div>\n<div id="card-wrap" class="iapp-card-wrap"></div>\n\n<div class="iapp-intro-wrap">\n    <div class="iapp-intro-content-wrap">\n        <div class="iapp-intro-icon-wrap">\n            <div class="iapp-intro-icon"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" alt=""></div>\n            <div class="iapp-intro-icon"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" alt=""></div>\n        </div> <!-- end iapp-intro-icon-wrap -->\n        <div class="iapp-intro-info">\n            <h2 class="iapp-intro-header">Welcome to your oscar closet</h2>\n            <p class="iapp-intro-chatter">Sort your closet using the sort button below and say yay or nay to each look using the icons on the photos. When you’ve selected 10 in each category then you’ll have a shareable look book to send out via twitter, FB, and email.</p>\n            <div class="iapp-button iapp-begin-button iapp-clickable"><div class="iapp-button-text">Begin</div></div>\n        </div> <!-- end iapp-intro-info -->\n    </div> <!-- end iapp-intro-content-wrap -->\n</div> <!-- end iapp-intro-wrap -->\n\n';
+__p += '<div class="iapp-project-info-wrap">\n    <h1 class="iapp-page-header">Dress like a star: Build your Ultimate Oscar closet</h1>\n    <p class="iapp-page-chatter">Love it or leave it? That’s for you to decide as you “shop” 100 memorable Oscar gowns and create your look book of favs…and, ahem, fails. Sort your closet using the tags at the right and say yay or nay to each look using the icons on the photos.</p>\n\n    <p class="iapp-share-chatter">Your friend\'s choices are below. Press reset to select your favorites.</p>\n    <div class="iapp-share-wrap"></div>\n</div>\n<div class="iapp-menu"></div>\n<div id="card-wrap" class="iapp-card-wrap"></div>\n\n<div class="iapp-intro-wrap">\n    <div class="iapp-intro-content-wrap">\n        <div class="iapp-intro-icon-wrap">\n            <div class="iapp-intro-icon"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/like.svg" alt=""></div>\n            <div class="iapp-intro-icon"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" alt=""></div>\n        </div> <!-- end iapp-intro-icon-wrap -->\n        <div class="iapp-intro-info">\n            <h2 class="iapp-intro-header">Welcome to your oscar closet</h2>\n            <p class="iapp-intro-chatter">Sort your closet using the sort button below and say yay or nay to each look using the icons on the photos. When you’ve selected 10 in each category then you’ll have a shareable look book to send out via twitter, FB, and email.</p>\n            <div class="iapp-button iapp-begin-button iapp-clickable"><div class="iapp-button-text">Begin</div></div>\n        </div> <!-- end iapp-intro-info -->\n    </div> <!-- end iapp-intro-content-wrap -->\n</div> <!-- end iapp-intro-wrap -->\n\n<div class="iapp-end-modal-wrap"></div>\n\n';
 
 }
 return __p
@@ -61,6 +61,36 @@ __p += '<div class="iapp-menu-panel">\n    \n    \n    <h3 class="iapp-menu-head
 '</span>\n        </div>\n        <div class="iapp-menu-scoreboard-dislikes">\n            \n            <span class="iapp-menu-scoreboard-icon"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/dislike.svg" alt="like"></span> \n            <span class="iapp-menu-scoreboard-score">' +
 ((__t = (numdislikes)) == null ? '' : __t) +
 '</span>       \n        </div>\n    </div>\n</div>';
+
+}
+return __p
+};
+
+this["templates"]["share-end.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="iapp-end-modal-wrap-content">\n    <div class="iapp-end-modal-close"></div>\n    <div class="iapp-end-modal-content">\n        <h3 class="iapp-end-header">' +
+((__t = (endHeader)) == null ? '' : __t) +
+'</h3>\n        <p class="iapp-end-chatter">' +
+((__t = (endBody)) == null ? '' : __t) +
+'</p>\n    </div>\n    <div class="iapp-share-buttons">\n        <a href="https://twitter.com/intent/tweet?url=' +
+((__t = (twitterShare)) == null ? '' : __t) +
+'&text=' +
+((__t = (encodedShare)) == null ? '' : __t) +
+'" class="iapp-share-button iapp-share-twitter iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/twitter.svg" alt="Twitter share"></a>\n        <a href="https://www.facebook.com/dialog/feed?display=popup&app_id=' +
+((__t = (fb_id)) == null ? '' : __t) +
+'&link=' +
+((__t = (fbShare)) == null ? '' : __t) +
+'&picture=' +
+((__t = (stillimage)) == null ? '' : __t) +
+'&name=&description=' +
+((__t = (encodedShare)) == null ? '' : __t) +
+'&redirect_uri=' +
+((__t = (fb_redirect)) == null ? '' : __t) +
+'" class="iapp-share-button iapp-share-facebook iapp-share-popup" target="_blank"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/fb.svg" alt="Facebook share"></a>\n        <a href="' +
+((__t = (email_link)) == null ? '' : __t) +
+'" class="iapp-share-button iapp-share-email"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/email.svg" alt="Email share"></a>\n    </div>\n</div>\n\n<div class="iapp-end-modal-bg"></div>';
 
 }
 return __p
