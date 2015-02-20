@@ -9,17 +9,13 @@ define(
 
     return Backbone.Model.extend( {
         defaults: {
-            isMenuOpen: true,
-            likesRemaining: 10,
-            dislikesRemaining: 10
+            isMenuOpen: false,
+            numlikes: 0,
+            numdislikes: 0
         },
 
         initialize: function() {
-            if (config.isMobile || window.innerWidth < this.mobileThreshhold) {
-                this.set({
-                    isMenuOpen: false
-                });
-            }
+            
             this.on('change', this.onChange);
             this.listenTo(Backbone, 'window:resize', this.onResize);
             this.listenTo(Backbone, 'liked:update', this.onLikeUpdate);
@@ -42,12 +38,12 @@ define(
 
         onDislikeUpdate: function(dislikeArray) {
             var numDislikes = dislikeArray.length;
-            this.set({'dislikesRemaining': 10 - numDislikes});
+            this.set({'numdislikes': numDislikes});
         },
 
         onLikeUpdate: function(likeArray) {
             var numLikes = likeArray.length;
-            this.set({'likesRemaining': 10 - numLikes});
+            this.set({'numlikes': numLikes});
         },
         
 
