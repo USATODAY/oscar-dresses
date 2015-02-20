@@ -10,8 +10,8 @@ define(
     return Backbone.Model.extend( {
         defaults: {
             isMenuOpen: false,
-            likesRemaining: 10,
-            dislikesRemaining: 10
+            numlikes: 0,
+            numdislikes: 0
         },
 
         initialize: function() {
@@ -38,12 +38,12 @@ define(
 
         onDislikeUpdate: function(dislikeArray) {
             var numDislikes = dislikeArray.length;
-            this.set({'dislikesRemaining': 10 - numDislikes});
+            this.set({'numdislikes': numDislikes});
         },
 
         onLikeUpdate: function(likeArray) {
             var numLikes = likeArray.length;
-            this.set({'likesRemaining': 10 - numLikes});
+            this.set({'numlikes': numLikes});
         },
         
 
