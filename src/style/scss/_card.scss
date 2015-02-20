@@ -206,12 +206,16 @@
 
 .iapp-like-button {
   left: 10px;
-  transition-delay: 100ms;
+
 }
 
 .iapp-dislike-button {
+  background-color: $medium-grey;
   right: 10px;
-  transition-delay: 200ms;
+
+  &:hover {
+    background-color: lighten($medium-grey, 10);
+  }
 }
 
 .iapp-card-front-image-wrap {
