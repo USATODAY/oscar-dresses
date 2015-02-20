@@ -216,6 +216,9 @@
 .iapp-menu-scoreboard-icon {
   height: 35px;
   width: 35px;
+  img {
+    display: block;
+  }
 }
 
 .iapp-menu-scoreboard-icon, .iapp-menu-scoreboard-score {
