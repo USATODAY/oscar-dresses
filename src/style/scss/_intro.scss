@@ -6,6 +6,10 @@
     top: 0;
     width: 100%;
     z-index: 5000;
+
+    @media(max-width: 600px) {
+        font-size: 0.8em;
+    }
 }
 
 .iapp-intro-content-wrap {
