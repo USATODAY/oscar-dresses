@@ -59,11 +59,11 @@ define([
             },
             onLikeChange: function() {
                 var numLikes = this.model.get('numlikes');
-                this.$('.iapp-menu-scoreboard-likes').find('.iapp-menu-scoreboard-score').text(numLikes);
+                this.$('.iapp-menu-scoreboard-likes').find('.iapp-menu-scoreboard-score-number').text(numLikes);
             },
             onDislikeChange: function() {
                 var numDislikes = this.model.get('numdislikes');
-                this.$('.iapp-menu-scoreboard-dislikes').find('.iapp-menu-scoreboard-score').text(numDislikes);
+                this.$('.iapp-menu-scoreboard-dislikes').find('.iapp-menu-scoreboard-score-number').text(numDislikes);
             },
             onWindowScroll: _.throttle(function() {
                if (this.checkIsVisible()) {

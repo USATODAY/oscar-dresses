@@ -1,0 +1,48 @@
+.iapp-intro-wrap {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 5000;
+
+    @media(max-width: 600px) {
+        font-size: 0.8em;
+    }
+}
+
+.iapp-intro-content-wrap {
+    color: white;
+    left: 50%;
+    max-width: 600px;
+    padding: 60px 0 ;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+
+.iapp-intro-icon-wrap {
+    margin: 0 auto;
+    max-width: 150px;
+    width: 100%;
+}
+
+.iapp-intro-icon {
+    display: inline-block;
+    width: 48%;
+    img {
+        max-width: 100%;
+    }
+}
+
+.iapp-intro-header {
+   text-transform: uppercase; 
+}
+
+.iapp-begin-button {
+    position: relative;
+    margin: 1em auto;
+}

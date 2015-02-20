@@ -73,10 +73,7 @@
   transition: none;
   width: calc(25% - 10px);
   z-index: 5;
-  &:hover {
-    // transform: translate(0, 5px);
-    // transition: transform 200ms ease;
-  }
+
 
   @media (min-width: 1400px) {
     width: calc(20% - 10px);
@@ -90,19 +87,9 @@
     width: calc(50% - 10px);
   }
 
-  // @media (max-width: 500px) {
-  //   margin-right: 0;
-  //   width: 100%;
-  // }
 
-   &:hover {
-    background: rgba(255, 255, 255, 0.8);
-    transition: all 250ms ease;
-    .iapp-feedback-button {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
-  }
+
+   
 }
 
 .iapp-touch-device { 
@@ -198,13 +185,13 @@
   color: white;
   display: inline-block;
   font-family: "Futura Today Demibold", Arial,sans-serif;
-  opacity: 0;
+  opacity: 1;
   max-width: 40%;
   padding: .25em .25em;
   position: absolute;
   text-align: center;
   text-transform: uppercase;
-  transform: translate(0, 80%);
+  // transform: translate(0, 80%);
   transition: all 250ms ease;
   width: 5rem;
   &:hover {
@@ -219,12 +206,16 @@
 
 .iapp-like-button {
   left: 10px;
-  transition-delay: 100ms;
+
 }
 
 .iapp-dislike-button {
+  background-color: $medium-grey;
   right: 10px;
-  transition-delay: 200ms;
+
+  &:hover {
+    background-color: lighten($medium-grey, 10);
+  }
 }
 
 .iapp-card-front-image-wrap {

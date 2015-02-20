@@ -31,9 +31,7 @@ define(
         onResize: _.throttle(function(e) {
             if (window.innerWidth < this.mobileThreshhold) {
                 this.set({isMenuOpen: false});
-            } else {
-                this.set({isMenuOpen: true});
-            }
+            } 
         }, 500),
 
         onDislikeUpdate: function(dislikeArray) {

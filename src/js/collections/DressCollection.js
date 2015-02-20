@@ -76,6 +76,12 @@ define([
           
           this.numLiked = liked.length;
 
+          if (this.numLiked == 10 && this.numDisliked == 10) {
+            Backbone.trigger('end:show', 'both');
+          } else if (this.numLiked == 10) {
+            Backbone.trigger('end:show', 'like');
+          }
+
           Backbone.trigger('liked:update', liked);
         },
 
@@ -85,6 +91,12 @@ define([
           });
           
           this.numDisliked = disliked.length;
+
+          if (this.numLiked == 10 && this.numDisliked == 10) {
+            Backbone.trigger('end:show', 'both');
+          } else if (this.numDisliked == 10) {
+            Backbone.trigger('end:show', 'dislike');
+          }
 
           Backbone.trigger('disliked:update', disliked);
         },

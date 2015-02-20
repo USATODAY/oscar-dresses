@@ -13,17 +13,18 @@ define([
   'views/cardsView',
   'views/menuView',
   'views/shareView',
+  'views/endView',
   'collections/DressCollection',
   'router',
   'dataManager',
   'jquery_ui_touch_punch'
   ], 
-  function(jQuery, imagesLoaded, Isotope, Analytics, _, Backbone, templates, config, MenuModel, ShareModel, detailView, CardsView, MenuView, ShareView, DressCollection, router, dataManager) {
+  function(jQuery, imagesLoaded, Isotope, Analytics, _, Backbone, templates, config, MenuModel, ShareModel, detailView, CardsView, MenuView, ShareView, EndView, DressCollection, router, dataManager) {
 
   return Backbone.View.extend({
     el: ".iapp-page-wrap",
     events: {
-      
+      'click .iapp-begin-button': 'onBeginClick' 
       // "click .iapp-filter-button": "setFilter",
       // "click .iapp-filter-button-clear": "clearFilters"
     },
@@ -51,6 +52,7 @@ define([
       this.menuView = new MenuView({model: new MenuModel()});
       this.dressCollection = new DressCollection(dataManager.data.dresses); 
       this.cardsView = new CardsView({collection: this.dressCollection});
+      this.endView = new EndView({model: this.shareModel});
       Backbone.history.start();
     },
 
@@ -68,6 +70,10 @@ define([
 
     onAppReset: function() {
       this.$el.removeClass('iapp-share-route');
+    },
+
+    onBeginClick: function() {
+      this.$('.iapp-intro-wrap').fadeOut();
     }
     
   });

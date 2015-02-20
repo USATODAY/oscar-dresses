@@ -12,7 +12,9 @@ define(
             'default_share_language': 'Love it or leave it? I shopped USA TODAY\'s Ultimate Oscar Closet​:',
             'stillimage': 'http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/fb-post.jpg',
             'likePath': '',
-            'dislikePath': ''
+            'dislikePath': '',
+            'endHeader': 'You\'re done!',
+            'endBody': 'Now share your look book.'
 
             
         },
@@ -32,6 +34,7 @@ define(
             }); 
            this.listenTo(Backbone, 'liked:update', this.onLiked);
            this.listenTo(Backbone, 'disliked:update', this.onDisliked);
+           this.listenTo(Backbone, 'end:show', this.endShow);
            
         },
 
@@ -110,6 +113,31 @@ define(
                 uids.push(uid);
             });
             return uids.join('-');
+        },
+
+        endTexts: {
+            'both': 'Now share your look book.',
+            'like': 'Now share your look book.',
+            'dislike': 'Now share your look book.'
+        },
+
+        endHeads: {
+            'both': 'You\'re done!',
+            'like': 'You\'ve said yes to 10!',
+            'dislike': 'You\'ve said no to 10!'
+        },
+
+        endShow: function(type) {
+            switch(type) {
+                case "both":
+                    this.set({'endHeader': this.endHeads.both, 'endBody': this.endTexts.both});
+                    break;
+                case "like":
+                    this.set({'endHeader': this.endHeads.like, 'endBody': this.endTexts.like});
+                    break;
+                case "dislike":
+                    this.set({'endHeader': this.endHeads.dislike, 'endBody': this.endTexts.dislike});
+            }
         },
 
         bothText: _.template('I shopped USA TODAY\'s Ultimate Oscar Closet​. I loved <%=likedNum%> and I\'m leaving <%=dislikedNum%>. My picks:'),
