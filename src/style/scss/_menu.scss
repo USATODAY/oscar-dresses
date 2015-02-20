@@ -143,7 +143,9 @@
   }
 }
 
-
+.iapp-menu-scoreboard-scrore-wrap {
+  display: inline;
+}
 
 
 .iapp-menu-scoreboard {
@@ -156,7 +158,10 @@
 
 .iapp-menu-scoreboard-likes, .iapp-menu-scoreboard-dislikes {
   height: 100%;
-  width: 10em;
+  width: 12em;
+  @media (max-width: 600px) {
+    width: 11em;
+  }
 }
 
 .iapp-menu-scoreboard-likes {
@@ -168,6 +173,9 @@
   }
   .iapp-menu-scoreboard-score {
     margin-left: 10px;
+    &.iapp-menu-scoreboard-score-total {
+      margin-left: 0;
+    }
   }
 
   .iapp-menu-scoreboard-label {
@@ -188,7 +196,10 @@
   }
 
   .iapp-menu-scoreboard-score {
-    margin-right: 10px;
+    margin-right: 0;
+    &.iapp-menu-scoreboard-score-total {
+      margin-right: 10px;
+    }
   }
 
   .iapp-menu-scoreboard-label {
@@ -196,6 +207,10 @@
     bottom: 0.5em;
     right: 1em;
   }
+}
+
+.iapp-menu-scoreboard-score.iapp-menu-scoreboard-score-total {
+  color: $light-grey;
 }
 
 .iapp-menu-scoreboard-icon {
