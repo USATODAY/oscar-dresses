@@ -13,3 +13,25 @@
     transition: background-color .5s;
   }
 }
+
+
+.iapp-button-text {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.iapp-button {
+  background: white;
+  border-radius: 50%;
+  @include BoxShadowHelper(4);
+  color: $purple;
+  height: 80px;
+  text-transform: uppercase;
+  transition: transform 500ms ease;
+  width: 80px;
+  z-index: 99;
+
+}

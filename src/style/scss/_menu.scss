@@ -76,6 +76,7 @@
   font-size: 2em;
   margin-bottom: 1em;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .iapp-menu-close {
@@ -83,8 +84,7 @@
     bottom: 25px;
     border-radius: 50%;
     @include BoxShadowHelper(4);
-    color: $purple;
-    
+    color: $purple; 
     height: 80px;
     position: absolute;
     right: 50%;
@@ -144,13 +144,7 @@
 }
 
 
-.iapp-button-text {
-  left: 50%;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
+
 
 .iapp-menu-scoreboard {
   background: rgba(0, 0, 0, 0.8);

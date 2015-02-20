@@ -23,7 +23,7 @@ define([
   return Backbone.View.extend({
     el: ".iapp-page-wrap",
     events: {
-      
+      'click .iapp-begin-button': 'onBeginClick' 
       // "click .iapp-filter-button": "setFilter",
       // "click .iapp-filter-button-clear": "clearFilters"
     },
@@ -68,6 +68,10 @@ define([
 
     onAppReset: function() {
       this.$el.removeClass('iapp-share-route');
+    },
+
+    onBeginClick: function() {
+      this.$('.iapp-intro-wrap').fadeOut();
     }
     
   });
