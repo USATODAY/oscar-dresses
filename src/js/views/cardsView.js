@@ -16,7 +16,8 @@ define([
   function(jQuery, imagesLoaded, Isotope, Analytics, _, Backbone, templates, config, cardView, detailView, router) {
 
   return Backbone.View.extend({
-    el: "#card-wrap",
+    el: ".iapp-card-wrap",
+    
     events: {
   
     },
@@ -39,30 +40,6 @@ define([
       this.$el.append(view.render().el);
     },
 
-    onHighlightRoute: function(id) {
-      if (this.collection.toJSON().length === 0) {
-       this.collection.once("reset", function() {
-          var detailModel = _.find(this.collection.models, function(model) {
-            return model.get("rowNumber") == id;
-          });
-          detailModel.set({"highlight": true});
-        }, this);
-      } else {
-        var detailModel = _.find(this.collection.models, function(model) {
-          return model.get("rowNumber") == id;
-        });
-        detailModel.set({"highlight": true});
-      }
-    },
-
-    onHomeRoute: function() {
-       var highlightModel = _.find(this.collection.models, function(model) {
-         return model.get("highlight") === true;
-       });
-       if (highlightModel) {
-        highlightModel.set({"highlight": false});
-       }
-    },
     showDetail: function(model) {
       if(model.get('highlight')) {
         this.detailView =  new detailView({model: model});
@@ -71,11 +48,10 @@ define([
       
     },
 
-    // template: templates["cards-view.html"], 
-
     render: function() {
       this.$el.empty();
       this.collection.each(this.addOne, this);
+      this.$el.addClass('iapp-card-wrap-full-width');
       
       var $el = this.$el;
       var _this = this;
@@ -114,10 +90,6 @@ define([
     removeHighlight: function() {
       Analytics.click("closed card");
      this.detailView.model.set({"highlight": false});
-    },
-    addTimeStamp: function() {
-      var objData = this.collection.toJSON();
-      this.$el.find(".time-stamp").html(objData[0].timestamp);
     },
 
     filter: function(filterArray) {

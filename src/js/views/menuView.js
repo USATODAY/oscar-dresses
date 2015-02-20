@@ -38,8 +38,7 @@ define([
             addSubViews: function() {
                 this.tagsCollection = new TagCollection(dataManager.data.tags);
                 this.tagsView = new TagsView({collection: this.tagsCollection});
-                this.shareModel = new ShareModel();
-                this.shareView = new ShareView({model: this.shareModel});
+                
             },
             updateState: function() {
                 if (this.model.get('isMenuOpen')) {

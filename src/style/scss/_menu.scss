@@ -18,7 +18,7 @@
   height: 80px;
   position: fixed;
   right: 0;
-  width: 24%;
+  width: 100%;
   z-index: 8;
 
   @media (max-width: $mid-break) {
@@ -147,6 +147,7 @@
 .iapp-button-text {
   left: 50%;
   position: absolute;
+  text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
 }
@@ -155,18 +156,19 @@
   background: rgba(0, 0, 0, 0.8);
   @include BoxShadowHelper(2);
   height: 8em;
-  padding: 0.5em 1em;
+  padding: 0 1em;
   width: 100%;
 }
 
 .iapp-menu-scoreboard-likes, .iapp-menu-scoreboard-dislikes {
   height: 100%;
-  width: 37%;
+  width: 10em;
 }
 
 .iapp-menu-scoreboard-likes {
-  float: left;
-
+  left: 50%;
+  position: absolute;
+  transform: translate(-100%, 0);
   .iapp-menu-scoreboard-icon, .iapp-menu-scoreboard-score {
     float: left;
   }
@@ -182,7 +184,9 @@
 }
 
 .iapp-menu-scoreboard-dislikes {
-  float: right;
+  right: 50%;
+  position: absolute;
+  transform: translate(100%, 0);
   text-align: right;
 
   .iapp-menu-scoreboard-icon, .iapp-menu-scoreboard-score {
@@ -201,16 +205,20 @@
 }
 
 .iapp-menu-scoreboard-icon {
-  max-width: 30px;
+  height: 35px;
+  width: 35px;
 }
 
 .iapp-menu-scoreboard-icon, .iapp-menu-scoreboard-score {
   color: white;
   display: inline-block;
   font-family: "Futura Today DemiBold" Arial, sans-serif;
-  font-size: 1.5em;
-  vertical-align: middle;
-  width: 48%;
+  font-size: 2em;
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+  vertical-align: top;
+  // width: 48%;
 }
 
 .iapp-menu-scoreboard-label {
