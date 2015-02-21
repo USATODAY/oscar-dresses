@@ -48,3 +48,9 @@
   right: 0.5em;
   width: 40px;
 }
+
+// hide always on shared route
+
+.iapp-share-route .iapp-end-modal-wrap {
+    display: none !important;
+}
