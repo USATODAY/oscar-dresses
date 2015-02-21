@@ -62,9 +62,11 @@ define([
           getSortData: {
             liked: function(itemElem) {
               if (jQuery(itemElem).hasClass('iapp-liked')) {
-                return 'liked';
+                return 'aliked';
+              } else if (jQuery(itemElem).hasClass('iapp-disliked')){
+                return 'bdisliked';
               } else {
-                return 'not-liked';
+                return 'z';
               }
             }
           }
