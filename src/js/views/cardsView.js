@@ -24,7 +24,8 @@ define([
 
     initialize: function() {
       this.listenTo(this.collection, 'change:highlight', this.showDetail);
-      this.listenTo(router, "highlight", this.onHighlightRoute);
+      this.listenTo(this.collection, 'change:isLiked', this.sortByLiked);
+      this.listenTo(this.collection, 'change:isDisliked', this.sortByLiked);
       this.listenTo(router, "homeRoute", this.onHomeRoute);
       this.listenTo(Backbone, "filters:update", this.filter);
       this.listenTo(Backbone, 'menu:show', this.onMenuShow);
@@ -57,7 +58,7 @@ define([
       var _this = this;
       $el.isotope( {
           itemSelector: '.card',
-          transitionDuration: (!config.isMobile) ? '0.4s' : 0,
+          transitionDuration: (!config.isMobile) ? '0.5s' : 0,
           getSortData: {
             liked: function(itemElem) {
               if (jQuery(itemElem).hasClass('iapp-liked')) {
@@ -132,11 +133,17 @@ define([
       this.relayout();
     },
 
+    sortByLiked: function() {
+
+      this.$el.isotope('updateSortData').isotope({sortBy: 'liked'});
+
+    },
+
     onRouteShare: function() {
       var _this = this;
       _.defer(function() {
         _this.$el.isotope({filter: '.iapp-liked, .iapp-disliked'});
-        _this.$el.isotope('updateSortData').isotope({sortBy: 'liked'});
+        _this.sortByLiked();
       });
     },
 
