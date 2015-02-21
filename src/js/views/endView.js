@@ -18,6 +18,8 @@ define([
                 this.render();
                 this.listenTo(this.model, 'change', this.render);
                 this.listenTo(Backbone, 'end:show', this.show);
+                this.listenTo(Backbone, 'route:share', this.quickHide);
+                this.listenTo(Backbone, 'app:reset', this.quickHide);
             },
             render: function() {
                 this.$el.html(this.template(this.model.toJSON()));
@@ -34,6 +36,7 @@ define([
               this.windowPopup(e.currentTarget.href, 500, 300);
             },
             show: function() {
+                console.log('show modal');
                 this.$el.fadeIn();
             },
             hide: function() {
@@ -50,6 +53,9 @@ define([
                     "",
                     "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left
                 );
+            },
+            quickHide: function() {
+                this.$el.hide();
             }
 
         });

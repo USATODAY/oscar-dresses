@@ -25,8 +25,6 @@ define([
     el: ".iapp-page-wrap",
     events: {
       'click .iapp-begin-button': 'onBeginClick' 
-      // "click .iapp-filter-button": "setFilter",
-      // "click .iapp-filter-button-clear": "clearFilters"
     },
 
     initialize: function() {
