@@ -9,7 +9,7 @@
   position: relative;
   transition: transform 400ms ease;
   width: 25.5%;   
-  z-index: 8;
+  z-index: 200;
 }
 
 .iapp-menu-control-area {
@@ -19,7 +19,7 @@
   position: fixed;
   right: 0;
   width: 100%;
-  z-index: 8;
+  z-index: 200;
 
   @media (max-width: $mid-break) {
     height: 75px;

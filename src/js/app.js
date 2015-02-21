@@ -1,7 +1,6 @@
 define([
   'require',
   'jquery',
-  'brightcove',
   'isotope',
   'underscore',
   'lib/BackboneRouter',
@@ -10,7 +9,7 @@ define([
   'dataManager',
   'jquery_ui_touch_punch'
   ], 
-  function(require, jQuery, brightcove, Isotope, _, Backbone, config, appView, dataManager) {
+  function(require, jQuery, Isotope, _, Backbone, config, appView, dataManager) {
 
 
   return {

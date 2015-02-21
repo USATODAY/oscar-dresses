@@ -147,14 +147,11 @@ module.exports = function(grunt) {
     requirejs: {
       dev: {
         options: {
-          "modules": [{
-            "name": "main",
-          }],
+          "name": "main",
           "baseUrl": "<%=config.src%>js",
-          "dir": "<%=config.build%>js",
+          "out": "<%=config.build%>js/main.js",
           "preserveLicenseComments": false,
           "optimize": "none",
-          // "optimize": "uglify2",
           "useStrict": true,
           "uglify2": {
             "beautify": true,
@@ -167,15 +164,10 @@ module.exports = function(grunt) {
             "jquery_ui": "lib/jquery-ui.min",
             "jquery_ui_touch_punch": "lib/jquery.ui.touch-punch.min",
             "analytics": "lib/analytics",
-            "mobile_detect": "lib/mobile-detect",
-            "d3": '../../bower_components/d3/d3',
             "isotope": "../../bower_components/isotope/dist/isotope.pkgd",
             "imagesloaded": "../../bower_components/imagesloaded/imagesloaded.pkgd",
-            "unveil": "lib/jquery.unveil",
-            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed',
-            "brightcove": 'lib/BrightcoveExperiences'
-              // "api/ads": "api/ads",
-              // "api/analytics": "api/analytics"
+            "unveil": "lib/jquery.unveil"
+            
           },
           "shim": {
             'backbone': {
@@ -185,22 +177,7 @@ module.exports = function(grunt) {
             'underscore': {
               "exports": '_'
             },
-            "jquery_ui": {
-              "deps": [
-                "jquery"
-              ],
-              "exports": "jQuery"
-            },
-            "jquery_ui_touch_punch": {
-              "deps": [
-                "jquery"
-                // "jquery_ui"
-              ],
-              "exports": "jQuery"
-            },
-            "brightcove": {
-              "exports": "brightcove"
-            },
+            
             "unveil": {
               "deps": ["jquery"]
             }
@@ -209,19 +186,15 @@ module.exports = function(grunt) {
       },
       deploy: {
         options: {
-          "modules": [{
-            "name": "main",
-            "exclude": [
-              "jquery",
-              "underscore",
-              "backbone"
-            ]
-          }],
+          "name": "main",
+          "exclude": [
+            "jquery",
+            "underscore",
+            "backbone"
+          ],
           "baseUrl": "<%=config.src%>js",
-          "dir": "<%=config.build%>js",
-          // "generateSourceMaps": true,
+          "out": "<%=config.build%>js/main.js",
           "preserveLicenseComments": false,
-          // "optimize": "none",
           "optimize": "uglify2",
           "useStrict": true,
           "uglify2": {
@@ -235,15 +208,10 @@ module.exports = function(grunt) {
             "jquery_ui": "lib/jquery-ui.min",
             "jquery_ui_touch_punch": "lib/jquery.ui.touch-punch.min",
             "analytics": "lib/analytics",
-            "mobile_detect": "lib/mobile-detect",
-            "d3": '../../bower_components/d3/d3',
             "isotope": "../../bower_components/isotope/dist/isotope.pkgd",
             "imagesloaded": "../../bower_components/imagesloaded/imagesloaded.pkgd",
-            "unveil": "lib/jquery.unveil",
-            "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed',
-            "brightcove": 'lib/BrightcoveExperiences'
-              // "api/ads": "api/ads",
-              // "api/analytics": "api/analytics"
+            "unveil": "lib/jquery.unveil"
+            
           },
           "shim": {
             'backbone': {
@@ -253,16 +221,7 @@ module.exports = function(grunt) {
             'underscore': {
               "exports": '_'
             },
-            "jquery_ui_touch_punch": {
-              "deps": [
-                "jquery",
-                "jquery_ui"
-              ],
-              "exports": "jQuery"
-            },
-            "brightcove": {
-              "exports": "brightcove"
-            },
+            
             "unveil": {
               "deps": ["jquery"]
             }
